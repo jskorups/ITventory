@@ -44,7 +44,7 @@
         <Button Grid.Row="2" Grid.Column="1" Height="auto">
             <materialDesign:PackIcon Kind="DatabasePlus" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Height="auto">
+        <Button Grid.Row="1" Grid.Column="1" Height="auto" Background="Aqua">
             <materialDesign:PackIcon Kind="DatabaseSearch" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
 
