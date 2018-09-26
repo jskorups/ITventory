@@ -31,22 +31,27 @@
         </StackPanel>
         <TextBox FontSize="48"  HorizontalContentAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center">ITventory</TextBox>
 
-        
-        <Button Grid.Row="1" Height="auto" Background="Beige">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="DarkSeaGreen" Height="180" Width="auto"></materialDesign:PackIcon>
+        <!--pierwszy wiersz przycisków-->
+        <Button Grid.Row="1"  Grid.Column="0" Height="auto" Background="LightBlue" BorderThickness="1">
+            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="WhiteSmoke" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
-        <Button Grid.Row="2" Height="auto" Background="Beige">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="DarkSeaGreen" Height="180" Width="auto"></materialDesign:PackIcon>
+        <Button Grid.Row="1" Grid.Column="1" Height="auto" Background="LightBlue" BorderThickness="1">
+            <materialDesign:PackIcon Kind="TableEdit" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
-        <Button Grid.Row="1" Grid.Column="1" Height="150">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
-        </Button>
-        <Button Grid.Row="2" Grid.Column="1" Height="auto">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
-        </Button>
-        <Button Grid.Row="1" Grid.Column="1" Height="auto" Background="Aqua">
+        <Button Grid.Row="1" Grid.Column="2" Height="auto" Background="LightBlue" BorderThickness="1">
             <materialDesign:PackIcon Kind="DatabaseSearch" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
+        <!--drugi wiersz przycisków-->
+        <Button Grid.Row="2" Grid.Column="0" Height="auto" Background="LightBlue" BorderThickness="1">
+            <materialDesign:PackIcon Kind="Update" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="1" Height="auto" Background="LightBlue" BorderThickness="1">
+            <materialDesign:PackIcon Kind="human" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+        </Button>
+        <Button Grid.Row="2" Grid.Column="2" Height="auto" Background="LightBlue" BorderThickness="1">
+            <materialDesign:PackIcon Kind="SettingsBox" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+        </Button>
+       
 
 
     </Grid>
