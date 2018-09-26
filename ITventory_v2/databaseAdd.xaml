@@ -5,8 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITventory_v2"
         mc:Ignorable="d"
-        Title="databaseAdd" Height="800" Width="1080">
+        Title="databaseAdd" Height="600" Width="800">
     <Grid>
+
+        <Label Grid.Row="1" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22" >GA no.</Label>
+        <Label Grid.Row="2" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Silesia no.</Label>
+        <Label Grid.Row="3" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Nazwa komputera</Label>
+        <Label Grid.Row="4" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Status</Label>
+        <Label Grid.Row="5" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Użytkownicy</Label>
+        <Label Grid.Row="6" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Typ</Label>
+        <Label Grid.Row="7" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Producent</Label>
+        <Label Grid.Row="8" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">Model</Label>
+        <Label Grid.Row="9" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">S/N</Label>
+        <Label Grid.Row="10" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">P/N</Label>
+
+        <TextBox Grid.Row="1" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22" ></TextBox>
+        <TextBox Grid.Row="2" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="4" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="5" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="6" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="7" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="8" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="9" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+        <TextBox Grid.Row="10" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
+
+        <DockPanel LastChildFill="True" Grid.ColumnSpan="2" Background="CornflowerBlue">
+            <TextBox Foreground="White" FontSize="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Lorem ipsum</TextBox>
+        </DockPanel>
+
+        <StackPanel ></StackPanel>
+        
+        <!--<StackPanel Background="CornflowerBlue" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
+            <TextBox Foreground="White" FontSize="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Blue">Lorem ipsum</TextBox>
+        </StackPanel>-->
+
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -19,20 +52,18 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
-            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="4*"></RowDefinition>
         </Grid.RowDefinitions>
+
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="6*"></ColumnDefinition>
-  
         </Grid.ColumnDefinitions>
-        <Label ></Label>
-        <TextBox Grid.Row="1" Grid.Column="1" Height="auto" Background="Red"></TextBox>
-        <TextBox Grid.Row="2" Grid.Column="1" Height="auto" Background="Red"></TextBox>
-        
-        
+
+
     </Grid>
-    
+
 
 
 </Window>
