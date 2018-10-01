@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ITventory_v2"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Title="databaseAdd" Height="600" Width="800">
     <Grid>
@@ -19,6 +20,7 @@
         <Label Grid.Row="9" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">S/N</Label>
         <Label Grid.Row="10" VerticalContentAlignment="Center"  BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22">P/N</Label>
 
+        
         <TextBox Grid.Row="1" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22" ></TextBox>
         <TextBox Grid.Row="2" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
         <TextBox Grid.Row="3" Grid.Column="1" Height="auto" BorderBrush="CornflowerBlue" BorderThickness="1" FontSize="22"></TextBox>
@@ -34,12 +36,23 @@
             <TextBox Foreground="White" FontSize="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">Lorem ipsum</TextBox>
         </DockPanel>
 
-        <StackPanel ></StackPanel>
-        
+        <StackPanel Grid.Row="11" Grid.ColumnSpan="2" Background="CornflowerBlue" Orientation="Horizontal" >
+       
+        </StackPanel>
+
+        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="11" Grid.ColumnSpan="2" Height="60" Width="80" HorizontalAlignment="Right" Margin="0,0,120,0">
+            <!--<materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
+        </Button>
+
+        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="11" Height="60" Width="80" HorizontalAlignment="Right" Margin="0,0,20,0" Grid.Column="1">
+            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>-->
+        </Button>
+
         <!--<StackPanel Background="CornflowerBlue" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Stretch">
             <TextBox Foreground="White" FontSize="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Background="Blue">Lorem ipsum</TextBox>
         </StackPanel>-->
 
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="4*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
@@ -54,15 +67,16 @@
             <RowDefinition Height="2*"></RowDefinition>
             <RowDefinition Height="4*"></RowDefinition>
         </Grid.RowDefinitions>
-
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="2*"></ColumnDefinition>
             <ColumnDefinition Width="6*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
 
+
     </Grid>
+
+
 
 
 

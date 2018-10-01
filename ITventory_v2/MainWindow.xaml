@@ -24,32 +24,32 @@
 
         <StackPanel Background="CornflowerBlue" Grid.ColumnSpan="3" Grid.Row="0">
             <StackPanel Width="auto" Height="50"  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,10">
-                <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="35" Width="40"></materialDesign:PackIcon>
+                <!--<materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="35" Width="40"></materialDesign:PackIcon>
                 <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White" Height="35" Width="40" ></materialDesign:PackIcon>
-                <materialDesign:PackIcon Kind="WindowClose" Foreground="White" Height="35" Width="40" HorizontalContentAlignment="Right"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="WindowClose" Foreground="White" Height="35" Width="40" HorizontalContentAlignment="Right"></materialDesign:PackIcon>-->
             </StackPanel>
         </StackPanel>
         <TextBox FontSize="48"  HorizontalContentAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center">ITventory</TextBox>
 
         <!--pierwszy wiersz przycisków-->
         <Button Grid.Row="1"  Grid.Column="0" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="WhiteSmoke" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="DatabasePlus" Foreground="WhiteSmoke" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
         <Button Grid.Row="1" Grid.Column="1" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="TableEdit" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="TableEdit" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
         <Button Grid.Row="1" Grid.Column="2" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="DatabaseSearch" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="DatabaseSearch" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
         <!--drugi wiersz przycisków-->
         <Button Grid.Row="2" Grid.Column="0" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="Update" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="Update" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
         <Button Grid.Row="2" Grid.Column="1" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="human" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="human" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
         <Button Grid.Row="2" Grid.Column="2" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="SettingsBox" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
+            <!--<materialDesign:PackIcon Kind="SettingsBox" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>-->
         </Button>
        
 
