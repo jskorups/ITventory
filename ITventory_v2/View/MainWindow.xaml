@@ -29,11 +29,11 @@
                 <materialDesign:PackIcon Kind="WindowClose" Foreground="White" Height="35" Width="40" HorizontalContentAlignment="Right"></materialDesign:PackIcon>
             </StackPanel>
         </StackPanel>
-        <TextBox FontSize="48"  HorizontalContentAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center">ITventory</TextBox>
+        <TextBox FontSize="78"  HorizontalContentAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center" FontFamily="Gothic Century">ITventory</TextBox>
 
         <!--pierwszy wiersz przycisków-->
         <Button Grid.Row="1"  Grid.Column="0" Height="auto" Background="LightBlue" BorderThickness="1">
-            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="WhiteSmoke" Height="180" Width="auto"></materialDesign:PackIcon>
+            <materialDesign:PackIcon Kind="DatabasePlus" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>
         </Button>
         <Button Grid.Row="1" Grid.Column="1" Height="auto" Background="LightBlue" BorderThickness="1">
             <materialDesign:PackIcon Kind="TableEdit" Foreground="White" Height="180" Width="auto"></materialDesign:PackIcon>

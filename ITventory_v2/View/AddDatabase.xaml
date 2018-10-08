@@ -266,15 +266,15 @@
             </Expander>
         </StackPanel>
 
-
-        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="2" Height="Auto" Width="75" HorizontalAlignment="Right" Margin="0,5,142.6,13.4">
+        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10" >
             <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-        </Button>
+            </Button>
 
-        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="2" Height="Auto" Width="75" HorizontalAlignment="Right" Margin="0,5,19.6,13.4">
+            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="2" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10">
             <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-        </Button>
-
+            </Button>
+        </StackPanel>
 
     </Grid>
 

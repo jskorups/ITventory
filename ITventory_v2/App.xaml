@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:ITventory_v2"
            
-             StartupUri="databaseViewEditGrid.xaml">
+             StartupUri="View/databaseViewEditGrid.xaml">
     
     <Application.Resources>
         <ResourceDictionary>
