@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="4*" />
-            <RowDefinition Height="0.5*" />
+            <RowDefinition Height="1*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -21,7 +21,6 @@
 
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="1" Background="CornflowerBlue" Margin="0,501.2,-0.4,0.4" Grid.RowSpan="2"></StackPanel>
         
         <StackPanel Grid.Row="0" Background="CornflowerBlue" Orientation="Horizontal">
             
@@ -266,14 +265,18 @@
             </Expander>
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
-            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10" >
-            <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-            </Button>
-
-            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="2" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10">
-            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-            </Button>
+        <StackPanel Grid.Row="2" Background="CornflowerBlue">
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,30,0,0">
+                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="60" Width="75" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30,0,20,20" >
+                    <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
+                </Button>
+                
+                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="60" Width="75" HorizontalAlignment="Right" Margin="20,0,30,20">
+                    <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
+                 </Button>
+            </StackPanel>
+            
         </StackPanel>
 
     </Grid>
