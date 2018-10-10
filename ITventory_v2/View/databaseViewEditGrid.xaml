@@ -6,13 +6,11 @@
         xmlns:local="clr-namespace:ITventory_v2"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="databaseViewEditGrid" Height="800" Width="1080" Loaded="Window_Loaded">
-        
+        Title="databaseViewEditGrid" Height="850" Width="1080" Loaded="Window_Loaded">
+
     <Window.Resources>
-        <local:ITventoryDataSet x:Key="iTventoryDataSet"/>
-        <CollectionViewSource x:Key="mainViewSource" Source="{Binding Main, Source={StaticResource iTventoryDataSet}}"/>
     </Window.Resources>
-    <Grid DataContext="{StaticResource mainViewSource}">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2.2*" ></RowDefinition>
             <RowDefinition Height="2.3*"></RowDefinition>
@@ -21,8 +19,7 @@
         </Grid.RowDefinitions>
 
         <DataGrid Grid.Row="2" Name="namedataGrid" AutoGenerateColumns="True" EnableRowVirtualization="True"
-                    Margin="10,10,10,10" ItemsSource="{Binding Main}">
-
+                    Margin="10,10,10,10" ItemsSource="{Binding}">
         </DataGrid>
 
         <DockPanel Grid.Row="0" Background="CornflowerBlue">
@@ -31,40 +28,29 @@
         </DockPanel>
         <StackPanel Grid.Row="1" Background="LightGray" Orientation="Horizontal" >
 
-            <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="NewBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
+            <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <materialDesign:PackIcon Kind="NewBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="PencilBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="PencilBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="Delete" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="Delete" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="Printer" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
+                <materialDesign:PackIcon Kind="Printer" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
-
-
         </StackPanel>
 
-        <!--<StackPanel Grid.Row="4" Orientation="Horizontal" Background="CornflowerBlue" >
-        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10" >
-            <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-        </Button>
-
-        <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Grid.Row="2" Height="50" Width="75" HorizontalAlignment="Right" Margin="20,0,20,10">
-            <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-        </Button>
-        </StackPanel>-->
         <StackPanel Grid.Row="4" Background="CornflowerBlue">
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="30,20,30,10">
-            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" Margin="10,10,40,10" >
-                <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
-            </Button>
-            <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right">
-                <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"/>
-            </Button>
-        </StackPanel>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="30,20,30,10">
+                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" Margin="10,10,40,10" >
+                    <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right">
+                    <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"/>
+                </Button>
+            </StackPanel>
         </StackPanel>
 
 

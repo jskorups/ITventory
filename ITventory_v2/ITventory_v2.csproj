@@ -78,36 +78,28 @@
     <Compile Include="View\databaseViewEditGrid.xaml.cs">
       <DependentUpon>databaseViewEditGrid.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ITventoryDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>ITventoryDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="ITventoryModel.Context.cs">
+    <Compile Include="Models\ITventoryModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ITventoryModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="ITventoryModel.cs">
+    <Compile Include="Models\ITventoryModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="ITventoryModel.Designer.cs">
+    <Compile Include="Models\ITventoryModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ITventoryModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Main.cs">
+    <Compile Include="Models\Main.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NameViewModel.cs" />
-    <Compile Include="Name.cs">
+    <Compile Include="Models\Name.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="View\test.xaml.cs">
-      <DependentUpon>test.xaml</DependentUpon>
     </Compile>
     <Page Include="View\AddDatabase.xaml">
       <SubType>Designer</SubType>
@@ -136,10 +128,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="View\test.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -159,22 +147,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="ITventoryModel.edmx">
+    <EntityDeploy Include="Models\ITventoryModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>ITventoryModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="ITventoryDataSet.xsc">
-      <DependentUpon>ITventoryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ITventoryDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>ITventoryDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="ITventoryDataSet.xss">
-      <DependentUpon>ITventoryDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="ITventoryModel.edmx.diagram">
+    <None Include="Models\ITventoryModel.edmx.diagram">
       <DependentUpon>ITventoryModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
@@ -187,12 +164,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ITventoryModel.Context.tt">
+    <Content Include="Models\ITventoryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>ITventoryModel.Context.cs</LastGenOutput>
       <DependentUpon>ITventoryModel.edmx</DependentUpon>
     </Content>
-    <Content Include="ITventoryModel.tt">
+    <Content Include="Models\ITventoryModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>ITventoryModel.edmx</DependentUpon>
       <LastGenOutput>ITventoryModel.cs</LastGenOutput>
@@ -201,8 +178,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

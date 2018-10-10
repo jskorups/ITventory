@@ -23,7 +23,7 @@ namespace ITventory_v2
         public databaseViewEditGrid()
         {
             InitializeComponent();
-            loadgrid();
+            DataContext = new MainViewModel().mainDane();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -31,10 +31,6 @@ namespace ITventory_v2
 
         }
 
-        private void loadgrid()
-        {
 
-            namedataGrid.ItemsSource = new MainViewModel().mainDane();
-        }
     }
 }

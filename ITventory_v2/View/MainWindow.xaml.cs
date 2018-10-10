@@ -24,5 +24,17 @@ namespace ITventory_v2
         {
             //InitializeComponent();
         }
+
+        private void addNewMainBtn_click(object sender, RoutedEventArgs e)
+        {
+            AddDatabase wnd = new AddDatabase();
+            wnd.ShowDialog();
+        }
+
+        private void EditViewGrid_Click(object sender, RoutedEventArgs e)
+        {
+            databaseViewEditGrid edt = new databaseViewEditGrid();
+            edt.ShowDialog();
+        }
     }
 }
