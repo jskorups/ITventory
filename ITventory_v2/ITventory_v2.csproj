@@ -72,11 +72,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="View\AddDatabase.xaml.cs">
-      <DependentUpon>AddDatabase.xaml</DependentUpon>
+    <Compile Include="View\add.xaml.cs">
+      <DependentUpon>add.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\databaseViewEditGrid.xaml.cs">
-      <DependentUpon>databaseViewEditGrid.xaml</DependentUpon>
+    <Compile Include="View\grid.xaml.cs">
+      <DependentUpon>grid.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\ITventoryModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -101,19 +101,15 @@
     <Compile Include="Models\Name.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
-    <Page Include="View\AddDatabase.xaml">
+    <Page Include="View\add.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\databaseAdd.xaml">
+    <Page Include="View\grid.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\databaseViewEditGrid.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\MainWindow.xaml">
+    <Page Include="View\main.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -121,11 +117,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\databaseAdd.xaml.cs">
-      <DependentUpon>databaseAdd.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
+    <Compile Include="View\main.xaml.cs">
+      <DependentUpon>main.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -178,6 +171,8 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
