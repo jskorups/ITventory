@@ -69,7 +69,7 @@
                         <Label Grid.Column="0" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Status"/>
                         <Label Grid.Column="0" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Użytkownicy"/>
 
-                        <TextBox Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Text="{Binding GAno}" Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
@@ -119,7 +119,6 @@
                     <Grid>
                         <Grid.RowDefinitions>
                             <RowDefinition/>
-
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -426,7 +425,7 @@
                     <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                 </Button>
 
-                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20">
+                <Button Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20">
                     <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                  </Button>
             </StackPanel>

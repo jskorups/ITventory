@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ITventory_v2"
         mc:Ignorable="d"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        Title="databaseViewEditGrid" Height="850" Width="1080" Loaded="Window_Loaded">
+        Title="databaseViewEditGrid" Height="850" Width="1080">
 
     <Window.Resources>
     </Window.Resources>
@@ -28,10 +28,11 @@
         </DockPanel>
         <StackPanel Grid.Row="1" Background="LightGray" Orientation="Horizontal" >
 
+
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <materialDesign:PackIcon Kind="NewBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
-            <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
+            <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click">
                 <materialDesign:PackIcon Kind="PencilBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
@@ -47,7 +48,7 @@
                 <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" Margin="10,10,40,10" >
                     <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                 </Button>
-                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right">
+                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right" Click="Button_Click_1">
                     <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"/>
                 </Button>
             </StackPanel>

@@ -26,11 +26,15 @@ namespace ITventory_v2
             DataContext = new MainViewModel().mainDane();
         }
 
-        private void Window_Loaded(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+           AddDatabase d = new AddDatabase(((MainViewModel)namedataGrid.SelectedItem));
+            d.ShowDialog();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
         }
-
-
     }
 }

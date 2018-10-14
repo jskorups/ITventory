@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITventory_v2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,21 @@ namespace ITventory_v2
     /// </summary>
     public partial class AddDatabase : Window
     {
+        
         public AddDatabase()
         {
             InitializeComponent();
+        }
+
+        public AddDatabase(MainViewModel model)
+        {
+            InitializeComponent();
+            DataContext = model;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
