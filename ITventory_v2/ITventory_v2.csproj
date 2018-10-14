@@ -75,6 +75,9 @@
     <Compile Include="View\add.xaml.cs">
       <DependentUpon>add.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\chooser.xaml.cs">
+      <DependentUpon>chooser.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\grid.xaml.cs">
       <DependentUpon>grid.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
     <Page Include="View\add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\chooser.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

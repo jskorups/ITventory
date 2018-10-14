@@ -120,7 +120,6 @@
                         <Grid.RowDefinitions>
                             <RowDefinition/>
 
-
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="1*" />
@@ -426,7 +425,7 @@
                     <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                 </Button>
 
-                <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20">
+                <Button Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20">
                     <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                  </Button>
             </StackPanel>

@@ -28,6 +28,7 @@
         </DockPanel>
         <StackPanel Grid.Row="1" Background="LightGray" Orientation="Horizontal" >
 
+
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <materialDesign:PackIcon Kind="NewBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
