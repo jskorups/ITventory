@@ -19,19 +19,19 @@ namespace ITventory_v2.Models
         public NameViewModel(int id)
         {
             ITventoryEntities ent = new ITventoryEntities();
-            Name name = ent.Name.Where(x => x.nam_id == id).FirstOrDefault();
-            Imie = name.nam_imie;
-            Nazwisko = name.nam_nazwisko;
-            this.id = name.nam_id;
+            Uzytkownicy name = ent.Uzytkownicy.Where(x => x.uzyt_id == id).FirstOrDefault();
+            Imie = name.uzyt_imie;
+            Nazwisko = name.uzyt_nazwisko;
+            this.id = name.uzyt_id;
         }
 
 
         public void ZapiszZmiany()
         {
             ITventoryEntities ent = new ITventoryEntities();
-            Name n = ent.Name.Where(x => x.nam_id == id).FirstOrDefault();
-            n.nam_imie = Imie;
-            n.nam_nazwisko = Nazwisko;
+            Uzytkownicy n = ent.Uzytkownicy.Where(x => x.uzyt_id == id).FirstOrDefault();
+            n.uzyt_imie = Imie;
+            n.uzyt_nazwisko = Nazwisko;
             ent.SaveChanges();
         }
 
@@ -39,7 +39,7 @@ namespace ITventory_v2.Models
         public void Kasuj()
         {
             ITventoryEntities ent = new ITventoryEntities();
-            ent.Name.Remove(ent.Name.Where(x => x.nam_id == this.id).FirstOrDefault());
+            ent.Uzytkownicy.Remove(ent.Uzytkownicy.Where(x => x.uzyt_id == this.id).FirstOrDefault());
             ent.SaveChanges();
         }
 
@@ -47,11 +47,11 @@ namespace ITventory_v2.Models
         public List<NameViewModel> ListOfNames()
         {
             ITventoryEntities ent = new ITventoryEntities();
-            List<NameViewModel> names = ent.Name.Select(x => new NameViewModel()
+            List<NameViewModel> names = ent.Uzytkownicy.Select(x => new NameViewModel()
             {
-                Imie = x.nam_imie,
-                Nazwisko = x.nam_nazwisko,
-                id = x.nam_id
+                Imie = x.uzyt_imie,
+                Nazwisko = x.uzyt_nazwisko,
+                id = x.uzyt_id
             }).ToList();
             return names;
         }

@@ -13,7 +13,8 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="2.2*" ></RowDefinition>
-            <RowDefinition Height="2.3*"></RowDefinition>
+            <RowDefinition Height="2.4*" ></RowDefinition>
+            <RowDefinition Height="1.5*"></RowDefinition>
             <RowDefinition Height="8*"></RowDefinition>
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
@@ -26,21 +27,45 @@
             <materialDesign:PackIcon Kind="TableEdit" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0"></materialDesign:PackIcon>
             <TextBox Foreground="White" FontSize="36" FontWeight="Bold" Margin="40,0,0,40" BorderThickness="0">Edytuj, przeglądaj tabelę</TextBox>
         </DockPanel>
-        <StackPanel Grid.Row="1" Background="LightGray" Orientation="Horizontal" >
 
+        <StackPanel Background="LightSteelBlue" Grid.Row="1">
+            <StackPanel Grid.Row="1" Background="LightSteelBlue" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="7">
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                    <materialDesign:PackIcon Kind="LaptopWindows" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click">
+                    <materialDesign:PackIcon Kind="Phone" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Printer" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="QrcodeScan" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="Monitor" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+                <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <materialDesign:PackIcon Kind="disk" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                </Button>
+            </StackPanel>
+        </StackPanel>
 
-            <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                <materialDesign:PackIcon Kind="NewBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+        <StackPanel Grid.Row="2" Background="#FF22ACA4">
+            <StackPanel Grid.Row="2" Background="LightSeaGreen" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5,5,5,5" Height="70">
+            <Button Background="Transparent" BorderThickness="0" Height="auto"  HorizontalAlignment="Right" VerticalAlignment="Center" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <materialDesign:PackIcon Kind="NewBox"  Foreground="White" Height="70" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center" Click="Button_Click">
-                <materialDesign:PackIcon Kind="PencilBox" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                    <materialDesign:PackIcon Kind="PencilBox" Foreground="White" Height="70"  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="Delete" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                    <materialDesign:PackIcon Kind="Delete" Foreground="White" Height="70"  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
             <Button Background="Transparent" BorderThickness="0" Height="100"  HorizontalAlignment="Right" VerticalAlignment="Center">
-                <materialDesign:PackIcon Kind="Printer" Foreground="White" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
+                    <materialDesign:PackIcon Kind="Printer" Foreground="White" Height="70"  Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
             </Button>
+        </StackPanel>
         </StackPanel>
 
         <StackPanel Grid.Row="4" Background="CornflowerBlue">

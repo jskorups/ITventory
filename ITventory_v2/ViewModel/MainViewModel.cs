@@ -18,12 +18,13 @@ namespace ITventory_v2.Models
         public List<MainViewModel> mainDane()
         {
             ITventoryEntities ent = new ITventoryEntities();
-            List<MainViewModel> MainObject = ent.Main.Select(x => new MainViewModel()
+            List<MainViewModel> MainObject = ent.Komputery.Select(x => new MainViewModel()
             {
-                Id = x.main_id,
-                GAno = x.main_GAno,
-                Silno = x.main_SilesiaNo.ToString(),
-                ImieInaziwsko = x.Name.nam_imie + " " + x.Name.nam_nazwisko
+                Id = x.komp_id,
+                GAno = x.komp_GAno,
+                Silno = x.komp_SilesiaNo.ToString(),
+
+                ImieInaziwsko = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
             }
             ).ToList();
 

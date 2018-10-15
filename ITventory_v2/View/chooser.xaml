@@ -1,4 +1,4 @@
-﻿<Window x:Class="ITventory_v2.View.chooser"
+﻿<Window x:Class="ITventory_v2.View.chooser" 
 xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:local="clr-namespace:ITventory_v2"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d" Height="250" Width="500"
-        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="None" Foreground="WhiteSmoke">
+        ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow" Foreground="WhiteSmoke" Background="DarkGray">
     <Grid>
 
         <Grid.RowDefinitions>
@@ -24,7 +24,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         </Grid.ColumnDefinitions>
 
         <StackPanel Background="CornflowerBlue" Grid.ColumnSpan="4" Grid.Row="0">
-            <StackPanel Width="136" Height="30"  HorizontalAlignment="Right" Orientation="Horizontal" >
+            <!--<StackPanel Width="136" Height="30"  HorizontalAlignment="Right" Orientation="Horizontal" >
                 
                 <Button  Background="Transparent"  BorderThickness="0" Margin="0,0,0,-2" Width="50"   >
                     <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" ></materialDesign:PackIcon>
@@ -37,7 +37,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
 
                 </Button>
 
-            </StackPanel>
+            </StackPanel>-->
         </StackPanel>
         <TextBox FontSize="36"  HorizontalContentAlignment="Center" Grid.ColumnSpan="4" VerticalContentAlignment="Center" FontFamily="Gothic Century" Text="Lorem"/>
 

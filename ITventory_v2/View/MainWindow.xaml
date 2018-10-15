@@ -23,11 +23,11 @@
 
 
         <StackPanel Background="CornflowerBlue" Grid.ColumnSpan="3" Grid.Row="0">
-            <StackPanel Width="auto" Height="50"  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,10">
+            <!--<StackPanel Width="auto" Height="50"  HorizontalAlignment="Right" Orientation="Horizontal" Margin="10,10">
                 <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="35" Width="40"></materialDesign:PackIcon>
                 <materialDesign:PackIcon Kind="WindowMaximize" Foreground="White" Height="35" Width="40" ></materialDesign:PackIcon>
                 <materialDesign:PackIcon Kind="WindowClose" Foreground="White" Height="35" Width="40" HorizontalContentAlignment="Right"></materialDesign:PackIcon>
-            </StackPanel>
+            </StackPanel>-->
         </StackPanel>
         <TextBox FontSize="78"  HorizontalContentAlignment="Center" Grid.ColumnSpan="3" VerticalContentAlignment="Center" FontFamily="Gothic Century" Text="Lorem"/>
 

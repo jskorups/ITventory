@@ -29,7 +29,6 @@
         </StackPanel>
 
         <StackPanel Grid.Row="1">
-
             <StackPanel Orientation="Horizontal" Height="85" Margin="0,0,-0.4,0">
                 <fa:ImageAwesome Icon="Pencil" VerticalAlignment="Center" HorizontalAlignment="Center" Height="50" Width="auto" Margin="40,0,0,0"/>
                 <Label Width="Auto" Foreground="Black" Height="60" HorizontalContentAlignment="Left" HorizontalAlignment="Center"  Margin="40,0,0,0" FontSize="28" FontFamily="Century Gothic" FontWeight="Heavy" VerticalContentAlignment="Center">
@@ -56,6 +55,8 @@
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -67,13 +68,17 @@
                         <Label Grid.Column="0" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Silesia no."/>
                         <Label Grid.Column="0" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Nazwa komputera"/>
                         <Label Grid.Column="0" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Status"/>
-                        <Label Grid.Column="0" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Użytkownicy"/>
+                        <Label Grid.Column="0" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Użytkownik"/>
+                        <Label Grid.Column="0" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Data zakupu"/>
+                        <Label Grid.Column="0" Grid.Row="6" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Nr. faktury"/>
 
                         <TextBox Text="{Binding GAno}" Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Grid.Column="1" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Grid.Column="1" Grid.Row="6" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                     </Grid>
 
                     <Grid Grid.Column="1">
@@ -83,6 +88,8 @@
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
                             <RowDefinition Height="30" />
+                            <RowDefinition Height="30" />
+
 
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
@@ -95,12 +102,14 @@
                         <Label Grid.Column="0" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Model"/>
                         <Label Grid.Column="0" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="S/N"/>
                         <Label Grid.Column="0" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="P/N"/>
+                        <Label Grid.Column="0" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Dostawca"/>
 
                         <TextBox Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Grid.Column="1" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                     </Grid>
 
                 </Grid>

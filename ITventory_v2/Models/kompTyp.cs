@@ -12,19 +12,18 @@ namespace ITventory_v2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Name
+    public partial class kompTyp
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Name()
+        public kompTyp()
         {
-            this.Main = new HashSet<Main>();
+            this.Komputery = new HashSet<Komputery>();
         }
     
-        public int nam_id { get; set; }
-        public string nam_imie { get; set; }
-        public string nam_nazwisko { get; set; }
+        public int kompTyp_id { get; set; }
+        public string kompTyp_nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Main> Main { get; set; }
+        public virtual ICollection<Komputery> Komputery { get; set; }
     }
 }
