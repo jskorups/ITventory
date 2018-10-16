@@ -7,10 +7,10 @@
       <Diagram DiagramId="f7c2af8d4e70434eb62b9d512d2857d0" Name="Diagram1" ShowGrid="true" DisplayType="true" ZoomLevel="75">
         <EntityTypeShape EntityType="ITventoryModel.Dostawca" Width="1.5" PointX="11" PointY="1.5" />
         <EntityTypeShape EntityType="ITventoryModel.kompTyp" Width="1.5" PointX="8" PointY="5.5" />
-        <EntityTypeShape EntityType="ITventoryModel.Komputery" Width="2.75" PointX="3" PointY="1" />
         <EntityTypeShape EntityType="ITventoryModel.Producent" Width="1.5" PointX="11.5" PointY="3.875" />
         <EntityTypeShape EntityType="ITventoryModel.Status" Width="1.5" PointX="8.75" PointY="2.625" />
         <EntityTypeShape EntityType="ITventoryModel.Uzytkownicy" Width="1.875" PointX="0.75" PointY="2.375" />
+        <EntityTypeShape EntityType="ITventoryModel.Devices" Width="1.5" PointX="5.375" PointY="1" />
         <AssociationConnector Association="ITventoryModel.FK_Komputery_Dostawca" />
         <AssociationConnector Association="ITventoryModel.FK_Komputery_kompTyp" />
         <AssociationConnector Association="ITventoryModel.FK_Komputery_Producent" />

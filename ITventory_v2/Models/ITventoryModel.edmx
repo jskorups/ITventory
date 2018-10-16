@@ -5,6 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ITventoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="dev_id" />
+          </Key>
+          <Property Name="dev_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="dev_GAno" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_SilesiaNo" Type="int" />
+          <Property Name="dev_Nazwa" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_status" Type="int" />
+          <Property Name="dev_uzyt" Type="int" />
+          <Property Name="dev_typ" Type="int" />
+          <Property Name="dev_producent" Type="int" />
+          <Property Name="dev_model" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_sn" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_pn" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_dataZakupu" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_dostawca" Type="int" />
+          <Property Name="dev_nrFaktury" Type="nvarchar" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Dostawca">
           <Key>
             <PropertyRef Name="dostawca_id" />
@@ -18,25 +37,6 @@
           </Key>
           <Property Name="kompTyp_id" Type="int" Nullable="false" />
           <Property Name="kompTyp_nazwa" Type="nvarchar" MaxLength="50" />
-        </EntityType>
-        <EntityType Name="Komputery">
-          <Key>
-            <PropertyRef Name="komp_id" />
-          </Key>
-          <Property Name="komp_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="komp_GAno" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_SilesiaNo" Type="int" />
-          <Property Name="komp_Nazwa" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_status" Type="int" />
-          <Property Name="komp_uzyt" Type="int" />
-          <Property Name="komp_typ" Type="int" />
-          <Property Name="komp_producent" Type="int" />
-          <Property Name="komp_model" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_sn" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_pn" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_dataZakupu" Type="nvarchar" MaxLength="50" />
-          <Property Name="komp_dostawca" Type="int" />
-          <Property Name="komp_nrFaktury" Type="nvarchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Producent">
           <Key>
@@ -63,90 +63,90 @@
         </EntityType>
         <Association Name="FK_Komputery_Dostawca">
           <End Role="Dostawca" Type="Self.Dostawca" Multiplicity="0..1" />
-          <End Role="Komputery" Type="Self.Komputery" Multiplicity="*" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Dostawca">
               <PropertyRef Name="dostawca_id" />
             </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_dostawca" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_dostawca" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_kompTyp">
           <End Role="kompTyp" Type="Self.kompTyp" Multiplicity="0..1" />
-          <End Role="Komputery" Type="Self.Komputery" Multiplicity="*" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="kompTyp">
               <PropertyRef Name="kompTyp_id" />
             </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_typ" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_typ" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Producent">
           <End Role="Producent" Type="Self.Producent" Multiplicity="0..1" />
-          <End Role="Komputery" Type="Self.Komputery" Multiplicity="*" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producent">
               <PropertyRef Name="prod_id" />
             </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_producent" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_producent" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Status">
           <End Role="Status" Type="Self.Status" Multiplicity="0..1" />
-          <End Role="Komputery" Type="Self.Komputery" Multiplicity="*" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Status">
               <PropertyRef Name="stat_id" />
             </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_status" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_status" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Uzytkownicy">
           <End Role="Uzytkownicy" Type="Self.Uzytkownicy" Multiplicity="0..1" />
-          <End Role="Komputery" Type="Self.Komputery" Multiplicity="*" />
+          <End Role="Devices" Type="Self.Devices" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Uzytkownicy">
               <PropertyRef Name="uzyt_id" />
             </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_uzyt" />
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_uzyt" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ITventoryModelStoreContainer">
+          <EntitySet Name="Devices" EntityType="Self.Devices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Dostawca" EntityType="Self.Dostawca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="kompTyp" EntityType="Self.kompTyp" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Komputery" EntityType="Self.Komputery" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Producent" EntityType="Self.Producent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Uzytkownicy" EntityType="Self.Uzytkownicy" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Komputery_Dostawca" Association="Self.FK_Komputery_Dostawca">
             <End Role="Dostawca" EntitySet="Dostawca" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_kompTyp" Association="Self.FK_Komputery_kompTyp">
             <End Role="kompTyp" EntitySet="kompTyp" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Producent" Association="Self.FK_Komputery_Producent">
             <End Role="Producent" EntitySet="Producent" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Status" Association="Self.FK_Komputery_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Uzytkownicy" Association="Self.FK_Komputery_Uzytkownicy">
             <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
@@ -156,38 +156,38 @@
         <EntityContainer Name="ITventoryEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Dostawca" EntityType="ITventoryModel.Dostawca" />
           <EntitySet Name="kompTyp" EntityType="ITventoryModel.kompTyp" />
-          <EntitySet Name="Komputery" EntityType="ITventoryModel.Komputery" />
           <EntitySet Name="Producent" EntityType="ITventoryModel.Producent" />
           <EntitySet Name="Status" EntityType="ITventoryModel.Status" />
           <EntitySet Name="Uzytkownicy" EntityType="ITventoryModel.Uzytkownicy" />
+          <EntitySet Name="Devices" EntityType="ITventoryModel.Devices" />
           <AssociationSet Name="FK_Komputery_Dostawca" Association="ITventoryModel.FK_Komputery_Dostawca">
             <End Role="Dostawca" EntitySet="Dostawca" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_kompTyp" Association="ITventoryModel.FK_Komputery_kompTyp">
             <End Role="kompTyp" EntitySet="kompTyp" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Producent" Association="ITventoryModel.FK_Komputery_Producent">
             <End Role="Producent" EntitySet="Producent" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Status" Association="ITventoryModel.FK_Komputery_Status">
             <End Role="Status" EntitySet="Status" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
           <AssociationSet Name="FK_Komputery_Uzytkownicy" Association="ITventoryModel.FK_Komputery_Uzytkownicy">
             <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
-            <End Role="Komputery" EntitySet="Komputery" />
+            <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="Dostawca">
           <Key>
             <PropertyRef Name="dostawca_id" />
           </Key>
           <Property Name="dostawca_id" Type="Int32" Nullable="false" />
           <Property Name="dostawca_nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Komputery" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Dostawca" ToRole="Komputery" />
+          <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Dostawca" ToRole="Devices" />
         </EntityType>
         <EntityType Name="kompTyp">
           <Key>
@@ -195,31 +195,7 @@
           </Key>
           <Property Name="kompTyp_id" Type="Int32" Nullable="false" />
           <Property Name="kompTyp_nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Komputery" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="kompTyp" ToRole="Komputery" />
-        </EntityType>
-        <EntityType Name="Komputery">
-          <Key>
-            <PropertyRef Name="komp_id" />
-          </Key>
-          <Property Name="komp_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="komp_GAno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_SilesiaNo" Type="Int32" />
-          <Property Name="komp_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_status" Type="Int32" />
-          <Property Name="komp_uzyt" Type="Int32" />
-          <Property Name="komp_typ" Type="Int32" />
-          <Property Name="komp_producent" Type="Int32" />
-          <Property Name="komp_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_sn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_pn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_dataZakupu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="komp_dostawca" Type="Int32" />
-          <Property Name="komp_nrFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Dostawca" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Komputery" ToRole="Dostawca" />
-          <NavigationProperty Name="kompTyp" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="Komputery" ToRole="kompTyp" />
-          <NavigationProperty Name="Producent" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Komputery" ToRole="Producent" />
-          <NavigationProperty Name="Status" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Komputery" ToRole="Status" />
-          <NavigationProperty Name="Uzytkownicy" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Komputery" ToRole="Uzytkownicy" />
+          <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="kompTyp" ToRole="Devices" />
         </EntityType>
         <EntityType Name="Producent">
           <Key>
@@ -227,7 +203,7 @@
           </Key>
           <Property Name="prod_id" Type="Int32" Nullable="false" />
           <Property Name="prod_nazwa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Komputery" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Producent" ToRole="Komputery" />
+          <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Producent" ToRole="Devices" />
         </EntityType>
         <EntityType Name="Status">
           <Key>
@@ -235,7 +211,7 @@
           </Key>
           <Property Name="stat_id" Type="Int32" Nullable="false" />
           <Property Name="stat_nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Komputery" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Status" ToRole="Komputery" />
+          <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Status" ToRole="Devices" />
         </EntityType>
         <EntityType Name="Uzytkownicy">
           <Key>
@@ -245,69 +221,48 @@
           <Property Name="uzyt_imie" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="uzyt_nazwisko" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="uzyt_silesiaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Komputery" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Uzytkownicy" ToRole="Komputery" />
+          <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Uzytkownicy" ToRole="Devices" />
+        </EntityType>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="dev_id" />
+          </Key>
+          <Property Name="dev_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dev_GAno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_SilesiaNo" Type="Int32" />
+          <Property Name="dev_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_sn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_pn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_dataZakupu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_nrFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dostawca" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Devices" ToRole="Dostawca" />
+          <NavigationProperty Name="kompTyp" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="Devices" ToRole="kompTyp" />
+          <NavigationProperty Name="Producent" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Devices" ToRole="Producent" />
+          <NavigationProperty Name="Status" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Devices" ToRole="Status" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Devices" ToRole="Uzytkownicy" />
         </EntityType>
         <Association Name="FK_Komputery_Dostawca">
           <End Type="ITventoryModel.Dostawca" Role="Dostawca" Multiplicity="0..1" />
-          <End Type="ITventoryModel.Komputery" Role="Komputery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Dostawca">
-              <PropertyRef Name="dostawca_id" />
-            </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_dostawca" />
-            </Dependent>
-          </ReferentialConstraint>
+          <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
         </Association>
         <Association Name="FK_Komputery_kompTyp">
           <End Type="ITventoryModel.kompTyp" Role="kompTyp" Multiplicity="0..1" />
-          <End Type="ITventoryModel.Komputery" Role="Komputery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="kompTyp">
-              <PropertyRef Name="kompTyp_id" />
-            </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_typ" />
-            </Dependent>
-          </ReferentialConstraint>
+          <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
         </Association>
         <Association Name="FK_Komputery_Producent">
           <End Type="ITventoryModel.Producent" Role="Producent" Multiplicity="0..1" />
-          <End Type="ITventoryModel.Komputery" Role="Komputery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Producent">
-              <PropertyRef Name="prod_id" />
-            </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_producent" />
-            </Dependent>
-          </ReferentialConstraint>
+          <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
         </Association>
         <Association Name="FK_Komputery_Status">
           <End Type="ITventoryModel.Status" Role="Status" Multiplicity="0..1" />
-          <End Type="ITventoryModel.Komputery" Role="Komputery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Status">
-              <PropertyRef Name="stat_id" />
-            </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_status" />
-            </Dependent>
-          </ReferentialConstraint>
+          <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
         </Association>
         <Association Name="FK_Komputery_Uzytkownicy">
           <End Type="ITventoryModel.Uzytkownicy" Role="Uzytkownicy" Multiplicity="0..1" />
-          <End Type="ITventoryModel.Komputery" Role="Komputery" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Uzytkownicy">
-              <PropertyRef Name="uzyt_id" />
-            </Principal>
-            <Dependent Role="Komputery">
-              <PropertyRef Name="komp_uzyt" />
-            </Dependent>
-          </ReferentialConstraint>
+          <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -326,26 +281,6 @@
               <MappingFragment StoreEntitySet="kompTyp">
                 <ScalarProperty Name="kompTyp_nazwa" ColumnName="kompTyp_nazwa" />
                 <ScalarProperty Name="kompTyp_id" ColumnName="kompTyp_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Komputery">
-            <EntityTypeMapping TypeName="ITventoryModel.Komputery">
-              <MappingFragment StoreEntitySet="Komputery">
-                <ScalarProperty Name="komp_nrFaktury" ColumnName="komp_nrFaktury" />
-                <ScalarProperty Name="komp_dostawca" ColumnName="komp_dostawca" />
-                <ScalarProperty Name="komp_dataZakupu" ColumnName="komp_dataZakupu" />
-                <ScalarProperty Name="komp_pn" ColumnName="komp_pn" />
-                <ScalarProperty Name="komp_sn" ColumnName="komp_sn" />
-                <ScalarProperty Name="komp_model" ColumnName="komp_model" />
-                <ScalarProperty Name="komp_producent" ColumnName="komp_producent" />
-                <ScalarProperty Name="komp_typ" ColumnName="komp_typ" />
-                <ScalarProperty Name="komp_uzyt" ColumnName="komp_uzyt" />
-                <ScalarProperty Name="komp_status" ColumnName="komp_status" />
-                <ScalarProperty Name="komp_Nazwa" ColumnName="komp_Nazwa" />
-                <ScalarProperty Name="komp_SilesiaNo" ColumnName="komp_SilesiaNo" />
-                <ScalarProperty Name="komp_GAno" ColumnName="komp_GAno" />
-                <ScalarProperty Name="komp_id" ColumnName="komp_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -375,6 +310,66 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="ITventoryModel.Devices">
+              <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="dev_nrFaktury" ColumnName="dev_nrFaktury" />
+                <ScalarProperty Name="dev_dataZakupu" ColumnName="dev_dataZakupu" />
+                <ScalarProperty Name="dev_pn" ColumnName="dev_pn" />
+                <ScalarProperty Name="dev_sn" ColumnName="dev_sn" />
+                <ScalarProperty Name="dev_model" ColumnName="dev_model" />
+                <ScalarProperty Name="dev_Nazwa" ColumnName="dev_Nazwa" />
+                <ScalarProperty Name="dev_SilesiaNo" ColumnName="dev_SilesiaNo" />
+                <ScalarProperty Name="dev_GAno" ColumnName="dev_GAno" />
+                <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="FK_Komputery_Dostawca" TypeName="ITventoryModel.FK_Komputery_Dostawca" StoreEntitySet="Devices">
+            <EndProperty Name="Devices">
+              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+            </EndProperty>
+            <EndProperty Name="Dostawca">
+              <ScalarProperty Name="dostawca_id" ColumnName="dev_dostawca" />
+            </EndProperty>
+            <Condition ColumnName="dev_dostawca" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Komputery_kompTyp" TypeName="ITventoryModel.FK_Komputery_kompTyp" StoreEntitySet="Devices">
+            <EndProperty Name="Devices">
+              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+            </EndProperty>
+            <EndProperty Name="kompTyp">
+              <ScalarProperty Name="kompTyp_id" ColumnName="dev_typ" />
+            </EndProperty>
+            <Condition ColumnName="dev_typ" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Komputery_Producent" TypeName="ITventoryModel.FK_Komputery_Producent" StoreEntitySet="Devices">
+            <EndProperty Name="Devices">
+              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+            </EndProperty>
+            <EndProperty Name="Producent">
+              <ScalarProperty Name="prod_id" ColumnName="dev_producent" />
+            </EndProperty>
+            <Condition ColumnName="dev_producent" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Komputery_Status" TypeName="ITventoryModel.FK_Komputery_Status" StoreEntitySet="Devices">
+            <EndProperty Name="Devices">
+              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+            </EndProperty>
+            <EndProperty Name="Status">
+              <ScalarProperty Name="stat_id" ColumnName="dev_status" />
+            </EndProperty>
+            <Condition ColumnName="dev_status" IsNull="false" />
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="FK_Komputery_Uzytkownicy" TypeName="ITventoryModel.FK_Komputery_Uzytkownicy" StoreEntitySet="Devices">
+            <EndProperty Name="Devices">
+              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+            </EndProperty>
+            <EndProperty Name="Uzytkownicy">
+              <ScalarProperty Name="uzyt_id" ColumnName="dev_uzyt" />
+            </EndProperty>
+            <Condition ColumnName="dev_uzyt" IsNull="false" />
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

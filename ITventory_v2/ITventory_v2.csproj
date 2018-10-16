@@ -75,13 +75,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Interfaces\IDevices.cs" />
+    <Compile Include="Models\Devices.cs">
+      <DependentUpon>ITventoryModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Dostawca.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\kompTyp.cs">
-      <DependentUpon>ITventoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Komputery.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Producent.cs">
@@ -93,6 +94,7 @@
     <Compile Include="Models\Uzytkownicy.cs">
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="ViewModel\ComputerViewModel.cs" />
     <Compile Include="View\AddDatabase.xaml.cs">
       <DependentUpon>AddDatabase.xaml</DependentUpon>
     </Compile>

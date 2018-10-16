@@ -12,22 +12,17 @@ namespace ITventory_v2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Komputery
+    public partial class Devices
     {
-        public int komp_id { get; set; }
-        public string komp_GAno { get; set; }
-        public Nullable<int> komp_SilesiaNo { get; set; }
-        public string komp_Nazwa { get; set; }
-        public Nullable<int> komp_status { get; set; }
-        public Nullable<int> komp_uzyt { get; set; }
-        public Nullable<int> komp_typ { get; set; }
-        public Nullable<int> komp_producent { get; set; }
-        public string komp_model { get; set; }
-        public string komp_sn { get; set; }
-        public string komp_pn { get; set; }
-        public string komp_dataZakupu { get; set; }
-        public Nullable<int> komp_dostawca { get; set; }
-        public string komp_nrFaktury { get; set; }
+        public int dev_id { get; set; }
+        public string dev_GAno { get; set; }
+        public Nullable<int> dev_SilesiaNo { get; set; }
+        public string dev_Nazwa { get; set; }
+        public string dev_model { get; set; }
+        public string dev_sn { get; set; }
+        public string dev_pn { get; set; }
+        public string dev_dataZakupu { get; set; }
+        public string dev_nrFaktury { get; set; }
     
         public virtual Dostawca Dostawca { get; set; }
         public virtual kompTyp kompTyp { get; set; }

@@ -17,13 +17,13 @@ namespace ITventory_v2.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public kompTyp()
         {
-            this.Komputery = new HashSet<Komputery>();
+            this.Devices = new HashSet<Devices>();
         }
     
         public int kompTyp_id { get; set; }
         public string kompTyp_nazwa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Komputery> Komputery { get; set; }
+        public virtual ICollection<Devices> Devices { get; set; }
     }
 }

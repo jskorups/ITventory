@@ -27,9 +27,9 @@ namespace ITventory_v2.Models
     
         public virtual DbSet<Dostawca> Dostawca { get; set; }
         public virtual DbSet<kompTyp> kompTyp { get; set; }
-        public virtual DbSet<Komputery> Komputery { get; set; }
         public virtual DbSet<Producent> Producent { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Uzytkownicy> Uzytkownicy { get; set; }
+        public virtual DbSet<Devices> Devices { get; set; }
     }
 }
