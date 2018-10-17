@@ -22,10 +22,10 @@
         </Grid.ColumnDefinitions>
 
         
-        <StackPanel Grid.Row="0" Background="CornflowerBlue" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Background="Gray" Orientation="Horizontal">
             
-            <materialDesign:PackIcon Kind="Laptop" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
-            <TextBox Foreground="White" FontSize="36" FontWeight="Bold" Margin="40,0,0,40" BorderThickness="0">Dodaj nowy komputer</TextBox>
+            <materialDesign:PackIcon Kind="Printer" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
+            <TextBox Foreground="White" FontSize="36" FontWeight="Bold" Margin="40,0,0,40" BorderThickness="0">Dodaj nową drukarkę</TextBox>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
@@ -428,7 +428,7 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Background="CornflowerBlue">
+    <StackPanel Grid.Row="2" Background="DimGray">
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,30,0,0">
                 <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30,0,20,20" >

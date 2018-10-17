@@ -42,7 +42,7 @@ xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         <TextBox FontSize="36"  HorizontalContentAlignment="Center" Grid.ColumnSpan="4" VerticalContentAlignment="Center" FontFamily="Gothic Century" Text="Lorem"/>
 
         <!-- Rząd pierwszy-->
-        <Button Grid.Column="0" Grid.Row="1"  Background="LightSalmon" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="auto" Height="auto">
+        <Button x:Name="chooserComputer" Grid.Column="0" Grid.Row="1"  Background="LightSalmon" BorderThickness="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Center" Width="auto" Height="auto" Click="chooserCpu_Click">
             <materialDesign:PackIcon Kind="LaptopWindows" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0"></materialDesign:PackIcon>
         </Button>
 

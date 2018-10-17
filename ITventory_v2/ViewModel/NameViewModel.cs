@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ITventory_v2.Models;
 
 namespace ITventory_v2.Models
 {

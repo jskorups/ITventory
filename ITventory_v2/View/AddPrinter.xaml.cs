@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITventory_v2.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,19 +13,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace ITventory_v2.View
+namespace ITventory_v2
 {
     /// <summary>
-    /// Interaction logic for chooser.xaml
+    /// Logika interakcji dla klasy AddDatabase.xaml
     /// </summary>
-    public partial class chooser : Window
+    public partial class AddDatabase : Window
     {
-        public chooser()
+        
+        public AddDatabase()
         {
             InitializeComponent();
         }
 
-        private void chooserCpu_Click(object sender, RoutedEventArgs e)
+        public AddDatabase(MainViewModel model)
+        {
+            InitializeComponent();
+            DataContext = model;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }
