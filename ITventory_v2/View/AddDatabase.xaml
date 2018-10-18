@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         
-        <StackPanel Grid.Row="0" Background="CornflowerBlue" Orientation="Horizontal">
+        <StackPanel Grid.Row="0" Background="DarkSlateBlue" Orientation="Horizontal">
             
             <materialDesign:PackIcon Kind="Laptop" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
             <TextBox Foreground="White" FontSize="36" FontWeight="Bold" Margin="40,0,0,40" BorderThickness="0">Dodaj nowy komputer</TextBox>
@@ -73,8 +73,8 @@
                         <Label Grid.Column="0" Grid.Row="6" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Nr. faktury"/>
 
                         <TextBox Text="{Binding GAno}" Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
-                        <TextBox Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Text="{Binding SilesiaNo}" Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Text="{Binding Nazwa}" Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <!--<TextBox Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>-->
                         <ComboBox Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1"></ComboBox>
@@ -428,14 +428,14 @@
 
         </StackPanel>
 
-        <StackPanel Grid.Row="2" Background="CornflowerBlue">
+        <StackPanel Grid.Row="2" Background="DarkSlateBlue">
             
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="10,30,0,0">
                 <Button Background="Transparent" BorderThickness="3" BorderBrush="White" Height="70" Width="85" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="30,0,20,20" >
                     <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                 </Button>
 
-                <Button Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20">
+                <Button Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20" Click="addSaveBtn_Click">
                     <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                  </Button>
             </StackPanel>

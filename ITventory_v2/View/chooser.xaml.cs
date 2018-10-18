@@ -26,7 +26,8 @@ namespace ITventory_v2.View
 
         private void chooserCpu_Click(object sender, RoutedEventArgs e)
         {
-
+            AddDatabase addWnd = new AddDatabase();
+            addWnd.ShowDialog();
         }
     }
 }

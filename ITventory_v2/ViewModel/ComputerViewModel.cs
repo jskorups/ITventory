@@ -13,7 +13,7 @@ namespace ITventory_v2.ViewModel
     {
         public int? Id { get; set; }
         public string GAno {get;set;} 
-        public string SilesiaNo {get;set;} 
+        public int SilesiaNo {get;set;} 
         public string Nazwa {get;set; }
         public string Typ { get; set; }
 
@@ -30,6 +30,8 @@ namespace ITventory_v2.ViewModel
                 }
 
                 dev.dev_GAno = GAno;
+                dev.dev_SilesiaNo = SilesiaNo;
+                dev.dev_Nazwa = Nazwa;
 
 
                 if (Id == null || Id == 0)

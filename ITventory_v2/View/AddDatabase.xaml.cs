@@ -26,15 +26,16 @@ namespace ITventory_v2
             InitializeComponent();
         }
 
-        public AddDatabase(MainViewModel model)
+        public AddDatabase(ViewModel.ComputerViewModel model)
         {
             InitializeComponent();
             DataContext = model;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void addSaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ViewModel.ComputerViewModel wnd = new ViewModel.ComputerViewModel();
+            wnd.SaveToDatabase();
         }
     }
 }

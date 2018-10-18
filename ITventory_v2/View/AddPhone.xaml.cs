@@ -18,15 +18,15 @@ namespace ITventory_v2
     /// <summary>
     /// Logika interakcji dla klasy AddDatabase.xaml
     /// </summary>
-    public partial class AddDatabase : Window
+    public partial class AddPhone : Window
     {
         
-        public AddDatabase()
+        public AddPhone()
         {
             InitializeComponent();
         }
 
-        public AddDatabase(MainViewModel model)
+        public AddPhone(MainViewModel model)
         {
             InitializeComponent();
             DataContext = model;

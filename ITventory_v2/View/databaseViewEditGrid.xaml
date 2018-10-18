@@ -19,7 +19,7 @@
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="2" Name="namedataGrid" AutoGenerateColumns="True" EnableRowVirtualization="True"
+        <DataGrid Grid.Row="3" Name="namedataGrid" AutoGenerateColumns="True" EnableRowVirtualization="True"
                     Margin="10,10,10,10" ItemsSource="{Binding}">
         </DataGrid>
 

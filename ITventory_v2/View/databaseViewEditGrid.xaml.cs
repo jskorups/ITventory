@@ -1,4 +1,5 @@
 ﻿using ITventory_v2.Models;
+
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace ITventory_v2
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           AddDatabase d = new AddDatabase(((MainViewModel)namedataGrid.SelectedItem));
+            AddDatabase d = new AddDatabase(((ViewModel.ComputerViewModel)namedataGrid.SelectedItem));
             d.ShowDialog();
         }
 
