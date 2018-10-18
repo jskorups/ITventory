@@ -1,5 +1,4 @@
 ﻿using ITventory_v2.Models;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,23 +16,23 @@ using System.Windows.Shapes;
 namespace ITventory_v2
 {
     /// <summary>
-    /// Interaction logic for databaseViewEditGrid.xaml
+    /// Logika interakcji dla klasy AddComputer.xaml
     /// </summary>
-    public partial class databaseViewEditGrid : Window
+    public partial class AddPrinter : Window
     {
-        public databaseViewEditGrid()
+        
+        public AddPrinter()
         {
             InitializeComponent();
-            DataContext = new MainViewModel().mainDane();
+        }
+
+        public AddPrinter(MainViewModel model)
+        {
+            InitializeComponent();
+            DataContext = model;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            AddComputer d = new AddComputer(((ViewModel.ComputerViewModel)namedataGrid.SelectedItem));
-            d.ShowDialog();
-        }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 
         }

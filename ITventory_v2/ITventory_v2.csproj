@@ -95,11 +95,14 @@
       <DependentUpon>ITventoryModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\ComputerViewModel.cs" />
+    <Compile Include="View\AddPrinter.xaml.cs">
+      <DependentUpon>AddPrinter.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\AddPhone.xaml.cs">
       <DependentUpon>AddPhone.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\AddDatabase.xaml.cs">
-      <DependentUpon>AddDatabase.xaml</DependentUpon>
+    <Compile Include="View\AddComputer.xaml.cs">
+      <DependentUpon>AddComputer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\chooser.xaml.cs">
       <DependentUpon>chooser.xaml</DependentUpon>
@@ -124,11 +127,15 @@
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\NameViewModel.cs" />
+    <Page Include="View\AddPrinter.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AddPhone.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="View\AddDatabase.xaml">
+    <Page Include="View\AddComputer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

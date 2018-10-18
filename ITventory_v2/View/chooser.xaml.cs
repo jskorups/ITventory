@@ -26,7 +26,19 @@ namespace ITventory_v2.View
 
         private void chooserCpu_Click(object sender, RoutedEventArgs e)
         {
-            AddDatabase addWnd = new AddDatabase();
+            AddComputer addWnd = new AddComputer();
+            addWnd.ShowDialog();
+        }
+
+        private void chooserPhone_Click(object sender, RoutedEventArgs e)
+        {
+            AddPhone addWnd = new AddPhone();
+            addWnd.ShowDialog();
+        }
+
+        private void chooserPrinter_Click(object sender, RoutedEventArgs e)
+        {
+            AddPrinter addWnd = new AddPrinter();
             addWnd.ShowDialog();
         }
     }

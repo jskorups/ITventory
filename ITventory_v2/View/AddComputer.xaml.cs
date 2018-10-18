@@ -16,26 +16,29 @@ using System.Windows.Shapes;
 namespace ITventory_v2
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddDatabase.xaml
+    /// Logika interakcji dla klasy AddComputer.xaml
     /// </summary>
-    public partial class AddDatabase : Window
+    public partial class AddComputer : Window
     {
         
-        public AddDatabase()
+        public AddComputer()
         {
             InitializeComponent();
         }
 
-        public AddDatabase(ViewModel.ComputerViewModel model)
+        public AddComputer(ViewModel.ComputerViewModel model)
         {
             InitializeComponent();
-            DataContext = model;
+          
+            
         }
 
         private void addSaveBtn_Click(object sender, RoutedEventArgs e)
         {
             ViewModel.ComputerViewModel wnd = new ViewModel.ComputerViewModel();
+            DataContext = new ViewModel.ComputerViewModel().SaveToDatabase();
             wnd.SaveToDatabase();
+           
         }
     }
 }

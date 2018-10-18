@@ -16,7 +16,7 @@ using System.Windows.Shapes;
 namespace ITventory_v2
 {
     /// <summary>
-    /// Logika interakcji dla klasy AddDatabase.xaml
+    /// Logika interakcji dla klasy AddComputer.xaml
     /// </summary>
     public partial class AddPhone : Window
     {
