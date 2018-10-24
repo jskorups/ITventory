@@ -24,12 +24,13 @@ namespace ITventory_v2
         public databaseViewEditGrid()
         {
             InitializeComponent();
-            DataContext = new MainViewModel().mainDane();
+            DataContext = new ViewModel.ComputerViewModel().ListOfDevices();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            AddComputer d = new AddComputer(((ViewModel.ComputerViewModel)namedataGrid.SelectedItem));
+            Interfaces.IDevices urzadzenie = ((Interfaces.IDevices)namedataGrid.SelectedItem);
+            AddComputer d = new AddComputer(urzadzenie);
             d.ShowDialog();
         }
 

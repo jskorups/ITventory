@@ -1,4 +1,5 @@
-﻿using ITventory_v2.Models;
+﻿using ITventory_v2.Interfaces;
+using ITventory_v2.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,21 +25,26 @@ namespace ITventory_v2
         public AddComputer()
         {
             InitializeComponent();
+            DataContext = new ViewModel.ComputerViewModel();
         }
 
         public AddComputer(ViewModel.ComputerViewModel model)
         {
             InitializeComponent();
-          
-            
+            DataContext = model;
+        }
+
+        public AddComputer(IDevices device)
+        {
+            InitializeComponent();
+            DataContext = device;
+            if (device.GetType() == typeof(ViewModel.ComputerViewModel)) { MessageBox.Show("Huraa to komputer"); }
         }
 
         private void addSaveBtn_Click(object sender, RoutedEventArgs e)
         {
-            ViewModel.ComputerViewModel wnd = new ViewModel.ComputerViewModel();
-            DataContext = new ViewModel.ComputerViewModel().SaveToDatabase();
+            ViewModel.ComputerViewModel wnd = (ViewModel.ComputerViewModel)DataContext;
             wnd.SaveToDatabase();
-           
         }
     }
 }
