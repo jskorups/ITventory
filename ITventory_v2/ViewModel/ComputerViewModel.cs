@@ -13,7 +13,7 @@ namespace ITventory_v2.ViewModel
     {
         public int? Id { get; set; }
         public string GAno {get;set;} 
-        public int SilesiaNo {get;set;} 
+        public int? SilesiaNo {get;set;} 
         public string Nazwa {get;set; }
         public string Typ { get; set; }
 
@@ -54,14 +54,40 @@ namespace ITventory_v2.ViewModel
 
         public List<IDevices> ListOfDevices()
         {
-            throw new NotImplementedException();
+            Devices dev = new Devices();
+            Models.ITventoryEntities ent = new Models.ITventoryEntities();
+            List<IDevices> komputery = new List<IDevices>();
+            komputery.AddRange(ent.Devices.Select(x => new ComputerViewModel()
+            {
+                Id = x.dev_id,
+                GAno = x.dev_GAno,
+                SilesiaNo = x.dev_SilesiaNo
+
+            }));
+            return komputery;
         }
 
         public List<IDevices> ListOfDevices(string filter)
         {
-            throw new NotImplementedException();
-        }
+            Devices dev = new Devices();
+            Models.ITventoryEntities ent = new Models.ITventoryEntities();
+            IDevices test = new ComputerViewModel();
+            List<IDevices> komputery = new List<IDevices>();
+            komputery.AddRange(ent.Devices.Where(x=>x.dev_Nazwa.Contains(filter)).Select(x => new ComputerViewModel()
+            {
+                Id = x.dev_id,
+                GAno = x.dev_GAno,
+                SilesiaNo = x.dev_SilesiaNo
 
-        
+            }));
+            //List<IDevices> komputery = ent.Devices.Select(x => new ComputerViewModel()
+            //{
+            //    Id = x.dev_id,
+            //    GAno = x.dev_GAno,
+            //    SilesiaNo = x.dev_SilesiaNo
+
+            //}).ToList();
+            return komputery;
+        }
     }
 }

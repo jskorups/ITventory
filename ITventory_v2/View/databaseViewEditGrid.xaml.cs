@@ -13,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ITventory_v2.Interfaces;
 
 namespace ITventory_v2
 {
@@ -21,10 +22,20 @@ namespace ITventory_v2
     /// </summary>
     public partial class databaseViewEditGrid : Window
     {
+        public databaseViewEditGrid(List<IDevices> lista)
+        {
+       
+            InitializeComponent();
+            DataContext = lista;
+
+        }
+
         public databaseViewEditGrid()
         {
+           
             InitializeComponent();
             DataContext = new ViewModel.ComputerViewModel().ListOfDevices();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

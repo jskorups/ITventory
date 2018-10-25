@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ITventory_v2.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -35,7 +36,8 @@ namespace ITventory_v2
 
         private void EditViewGrid_Click(object sender, RoutedEventArgs e)
         {
-            databaseViewEditGrid edt = new databaseViewEditGrid();
+            databaseViewEditGrid edt = new databaseViewEditGrid(new ComputerViewModel().ListOfDevices());
+           // databaseViewEditGrid edt = new databaseViewEditGrid();
             edt.ShowDialog();
         }
 

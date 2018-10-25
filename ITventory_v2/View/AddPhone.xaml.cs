@@ -26,11 +26,11 @@ namespace ITventory_v2
             InitializeComponent();
         }
 
-        public AddPhone(MainViewModel model)
-        {
-            InitializeComponent();
-            DataContext = model;
-        }
+        //public AddPhone(MainViewModel model)
+        //{
+        //    InitializeComponent();
+        //    DataContext = model;
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {

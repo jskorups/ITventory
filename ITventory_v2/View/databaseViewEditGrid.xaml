@@ -19,8 +19,12 @@
             <RowDefinition Height="2*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <DataGrid Grid.Row="3" Name="namedataGrid" AutoGenerateColumns="True" EnableRowVirtualization="True"
+        <DataGrid Grid.Row="3" Name="namedataGrid" 
                     Margin="10,10,10,10" ItemsSource="{Binding}">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="GAno" Binding="{Binding GAno}"/>
+               
+            </DataGrid.Columns>
         </DataGrid>
 
         <DockPanel Grid.Row="0" Background="CornflowerBlue">
