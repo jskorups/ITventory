@@ -12,10 +12,22 @@ namespace ITventory_v2.ViewModel
     public class ComputerViewModel : IDevices
     {
         public int? Id { get; set; }
+        //pola obowiazkowe
         public string GAno {get;set;} 
         public int? SilesiaNo {get;set;} 
-        public string Nazwa {get;set; }
-        public string Typ { get; set; }
+        public string NazwaKomputera {get;set; }
+      
+        
+        public string Producent { get; set; }
+        public string Model { get; set; }
+        public string PartNumber { get; set; }
+        public string SerialNumber { get; set; }
+        public string Dostawca { get; set; }
+        public DateTime DataZakupu { get; set; }
+        public string NumerFaktury { get; set; }
+        // pola wybieralne
+        public string Status { get; set; }
+        public string Użytkownik { get; set; }
 
 
         public string SaveToDatabase()
@@ -31,7 +43,8 @@ namespace ITventory_v2.ViewModel
 
                 dev.dev_GAno = GAno;
                 dev.dev_SilesiaNo = SilesiaNo;
-                dev.dev_Nazwa = Nazwa;
+                dev.dev_Nazwa = NazwaKomputera;
+                dev.dev
 
 
                 if (Id == null || Id == 0)
