@@ -12,24 +12,28 @@ namespace ITventory_v2.ViewModel
     public class ComputerViewModel : IDevices
     {
         public int? Id { get; set; }
+
         //pola obowiazkowe
+
         public string GAno {get;set;} 
         public int? SilesiaNo {get;set;} 
-        public string NazwaKomputera {get;set; }
-      
-        
-        public string Producent { get; set; }
+        public string NazwaKomputera {get;set;}
+        // pola wybieralne
+        public int Status { get; set; }
+        public int Użytkownik { get; set; }
+        public int Typ { get; set; }
+        //
+        public int Producent { get; set; }
         public string Model { get; set; }
         public string PartNumber { get; set; }
         public string SerialNumber { get; set; }
-        public string Dostawca { get; set; }
-        public DateTime DataZakupu { get; set; }
+        // pole wybieralne
+        public int Dostawca { get; set; }
+        //
+        public string DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
-        // pola wybieralne
-        public string Status { get; set; }
-        public string Użytkownik { get; set; }
 
-
+    
         public string SaveToDatabase()
         {
             try
@@ -40,11 +44,19 @@ namespace ITventory_v2.ViewModel
                 {
                     dev = ent.Devices.Where(x => x.dev_id == Id).FirstOrDefault();
                 }
-
+                
                 dev.dev_GAno = GAno;
                 dev.dev_SilesiaNo = SilesiaNo;
                 dev.dev_Nazwa = NazwaKomputera;
-                dev.dev
+                dev.dev_status = Status;
+                dev.dev_uzyt = Użytkownik;
+                dev.dev_typ = Typ;
+                dev.dev_producent = Producent;
+                dev.dev_model = Model;
+                dev.dev_pn = PartNumber;
+                dev.dev_sn = SerialNumber;
+                dev.dev_dostawca = Dostawca;
+                dev.dev_dataZakupu = DataZakupu;
 
 
                 if (Id == null || Id == 0)

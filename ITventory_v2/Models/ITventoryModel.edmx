@@ -154,12 +154,12 @@
     <edmx:ConceptualModels>
       <Schema Namespace="ITventoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="ITventoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Devices" EntityType="ITventoryModel.Devices" />
           <EntitySet Name="Dostawca" EntityType="ITventoryModel.Dostawca" />
           <EntitySet Name="kompTyp" EntityType="ITventoryModel.kompTyp" />
           <EntitySet Name="Producent" EntityType="ITventoryModel.Producent" />
           <EntitySet Name="Status" EntityType="ITventoryModel.Status" />
           <EntitySet Name="Uzytkownicy" EntityType="ITventoryModel.Uzytkownicy" />
-          <EntitySet Name="Devices" EntityType="ITventoryModel.Devices" />
           <AssociationSet Name="FK_Komputery_Dostawca" Association="ITventoryModel.FK_Komputery_Dostawca">
             <End Role="Dostawca" EntitySet="Dostawca" />
             <End Role="Devices" EntitySet="Devices" />
@@ -180,7 +180,31 @@
             <End Role="Uzytkownicy" EntitySet="Uzytkownicy" />
             <End Role="Devices" EntitySet="Devices" />
           </AssociationSet>
-          </EntityContainer>
+        </EntityContainer>
+        <EntityType Name="Devices">
+          <Key>
+            <PropertyRef Name="dev_id" />
+          </Key>
+          <Property Name="dev_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="dev_GAno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_SilesiaNo" Type="Int32" />
+          <Property Name="dev_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_status" Type="Int32" />
+          <Property Name="dev_uzyt" Type="Int32" />
+          <Property Name="dev_typ" Type="Int32" />
+          <Property Name="dev_producent" Type="Int32" />
+          <Property Name="dev_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_sn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_pn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_dataZakupu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_dostawca" Type="Int32" />
+          <Property Name="dev_nrFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Dostawca" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Devices" ToRole="Dostawca" />
+          <NavigationProperty Name="kompTyp" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="Devices" ToRole="kompTyp" />
+          <NavigationProperty Name="Producent" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Devices" ToRole="Producent" />
+          <NavigationProperty Name="Status" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Devices" ToRole="Status" />
+          <NavigationProperty Name="Uzytkownicy" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Devices" ToRole="Uzytkownicy" />
+        </EntityType>
         <EntityType Name="Dostawca">
           <Key>
             <PropertyRef Name="dostawca_id" />
@@ -223,44 +247,65 @@
           <Property Name="uzyt_silesiaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Devices" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Uzytkownicy" ToRole="Devices" />
         </EntityType>
-        <EntityType Name="Devices">
-          <Key>
-            <PropertyRef Name="dev_id" />
-          </Key>
-          <Property Name="dev_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="dev_GAno" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_SilesiaNo" Type="Int32" />
-          <Property Name="dev_Nazwa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_sn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_pn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_dataZakupu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_nrFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Dostawca" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Devices" ToRole="Dostawca" />
-          <NavigationProperty Name="kompTyp" Relationship="ITventoryModel.FK_Komputery_kompTyp" FromRole="Devices" ToRole="kompTyp" />
-          <NavigationProperty Name="Producent" Relationship="ITventoryModel.FK_Komputery_Producent" FromRole="Devices" ToRole="Producent" />
-          <NavigationProperty Name="Status" Relationship="ITventoryModel.FK_Komputery_Status" FromRole="Devices" ToRole="Status" />
-          <NavigationProperty Name="Uzytkownicy" Relationship="ITventoryModel.FK_Komputery_Uzytkownicy" FromRole="Devices" ToRole="Uzytkownicy" />
-        </EntityType>
         <Association Name="FK_Komputery_Dostawca">
           <End Type="ITventoryModel.Dostawca" Role="Dostawca" Multiplicity="0..1" />
           <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Dostawca">
+              <PropertyRef Name="dostawca_id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_dostawca" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_kompTyp">
           <End Type="ITventoryModel.kompTyp" Role="kompTyp" Multiplicity="0..1" />
           <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kompTyp">
+              <PropertyRef Name="kompTyp_id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_typ" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Producent">
           <End Type="ITventoryModel.Producent" Role="Producent" Multiplicity="0..1" />
           <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Producent">
+              <PropertyRef Name="prod_id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_producent" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Status">
           <End Type="ITventoryModel.Status" Role="Status" Multiplicity="0..1" />
           <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Status">
+              <PropertyRef Name="stat_id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_status" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         <Association Name="FK_Komputery_Uzytkownicy">
           <End Type="ITventoryModel.Uzytkownicy" Role="Uzytkownicy" Multiplicity="0..1" />
           <End Type="ITventoryModel.Devices" Role="Devices" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Uzytkownicy">
+              <PropertyRef Name="uzyt_id" />
+            </Principal>
+            <Dependent Role="Devices">
+              <PropertyRef Name="dev_uzyt" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
         </Schema>
     </edmx:ConceptualModels>
@@ -268,6 +313,26 @@
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ITventoryModelStoreContainer" CdmEntityContainer="ITventoryEntities">
+          <EntitySetMapping Name="Devices">
+            <EntityTypeMapping TypeName="ITventoryModel.Devices">
+              <MappingFragment StoreEntitySet="Devices">
+                <ScalarProperty Name="dev_nrFaktury" ColumnName="dev_nrFaktury" />
+                <ScalarProperty Name="dev_dostawca" ColumnName="dev_dostawca" />
+                <ScalarProperty Name="dev_dataZakupu" ColumnName="dev_dataZakupu" />
+                <ScalarProperty Name="dev_pn" ColumnName="dev_pn" />
+                <ScalarProperty Name="dev_sn" ColumnName="dev_sn" />
+                <ScalarProperty Name="dev_model" ColumnName="dev_model" />
+                <ScalarProperty Name="dev_producent" ColumnName="dev_producent" />
+                <ScalarProperty Name="dev_typ" ColumnName="dev_typ" />
+                <ScalarProperty Name="dev_uzyt" ColumnName="dev_uzyt" />
+                <ScalarProperty Name="dev_status" ColumnName="dev_status" />
+                <ScalarProperty Name="dev_Nazwa" ColumnName="dev_Nazwa" />
+                <ScalarProperty Name="dev_SilesiaNo" ColumnName="dev_SilesiaNo" />
+                <ScalarProperty Name="dev_GAno" ColumnName="dev_GAno" />
+                <ScalarProperty Name="dev_id" ColumnName="dev_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Dostawca">
             <EntityTypeMapping TypeName="ITventoryModel.Dostawca">
               <MappingFragment StoreEntitySet="Dostawca">
@@ -310,66 +375,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Devices">
-            <EntityTypeMapping TypeName="ITventoryModel.Devices">
-              <MappingFragment StoreEntitySet="Devices">
-                <ScalarProperty Name="dev_nrFaktury" ColumnName="dev_nrFaktury" />
-                <ScalarProperty Name="dev_dataZakupu" ColumnName="dev_dataZakupu" />
-                <ScalarProperty Name="dev_pn" ColumnName="dev_pn" />
-                <ScalarProperty Name="dev_sn" ColumnName="dev_sn" />
-                <ScalarProperty Name="dev_model" ColumnName="dev_model" />
-                <ScalarProperty Name="dev_Nazwa" ColumnName="dev_Nazwa" />
-                <ScalarProperty Name="dev_SilesiaNo" ColumnName="dev_SilesiaNo" />
-                <ScalarProperty Name="dev_GAno" ColumnName="dev_GAno" />
-                <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <AssociationSetMapping Name="FK_Komputery_Dostawca" TypeName="ITventoryModel.FK_Komputery_Dostawca" StoreEntitySet="Devices">
-            <EndProperty Name="Devices">
-              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-            </EndProperty>
-            <EndProperty Name="Dostawca">
-              <ScalarProperty Name="dostawca_id" ColumnName="dev_dostawca" />
-            </EndProperty>
-            <Condition ColumnName="dev_dostawca" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Komputery_kompTyp" TypeName="ITventoryModel.FK_Komputery_kompTyp" StoreEntitySet="Devices">
-            <EndProperty Name="Devices">
-              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-            </EndProperty>
-            <EndProperty Name="kompTyp">
-              <ScalarProperty Name="kompTyp_id" ColumnName="dev_typ" />
-            </EndProperty>
-            <Condition ColumnName="dev_typ" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Komputery_Producent" TypeName="ITventoryModel.FK_Komputery_Producent" StoreEntitySet="Devices">
-            <EndProperty Name="Devices">
-              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-            </EndProperty>
-            <EndProperty Name="Producent">
-              <ScalarProperty Name="prod_id" ColumnName="dev_producent" />
-            </EndProperty>
-            <Condition ColumnName="dev_producent" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Komputery_Status" TypeName="ITventoryModel.FK_Komputery_Status" StoreEntitySet="Devices">
-            <EndProperty Name="Devices">
-              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-            </EndProperty>
-            <EndProperty Name="Status">
-              <ScalarProperty Name="stat_id" ColumnName="dev_status" />
-            </EndProperty>
-            <Condition ColumnName="dev_status" IsNull="false" />
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="FK_Komputery_Uzytkownicy" TypeName="ITventoryModel.FK_Komputery_Uzytkownicy" StoreEntitySet="Devices">
-            <EndProperty Name="Devices">
-              <ScalarProperty Name="dev_id" ColumnName="dev_id" />
-            </EndProperty>
-            <EndProperty Name="Uzytkownicy">
-              <ScalarProperty Name="uzyt_id" ColumnName="dev_uzyt" />
-            </EndProperty>
-            <Condition ColumnName="dev_uzyt" IsNull="false" />
-          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -385,7 +390,7 @@
       <DesignerInfoPropertySet>
         <DesignerProperty Name="ValidateOnBuild" Value="true" />
         <DesignerProperty Name="EnablePluralization" Value="false" />
-        <DesignerProperty Name="IncludeForeignKeysInModel" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="UseLegacyProvider" Value="false" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
       </DesignerInfoPropertySet>

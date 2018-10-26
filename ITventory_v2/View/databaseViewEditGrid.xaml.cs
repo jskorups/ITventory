@@ -24,27 +24,21 @@ namespace ITventory_v2
     {
         public databaseViewEditGrid(List<IDevices> lista)
         {
-       
             InitializeComponent();
             DataContext = lista;
-
         }
-
         public databaseViewEditGrid()
-        {
-           
+        { 
             InitializeComponent();
             DataContext = new ViewModel.ComputerViewModel().ListOfDevices();
 
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Interfaces.IDevices urzadzenie = ((Interfaces.IDevices)namedataGrid.SelectedItem);
             AddComputer d = new AddComputer(urzadzenie);
             d.ShowDialog();
         }
-
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
 

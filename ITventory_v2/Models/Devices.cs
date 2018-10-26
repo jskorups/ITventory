@@ -18,10 +18,15 @@ namespace ITventory_v2.Models
         public string dev_GAno { get; set; }
         public Nullable<int> dev_SilesiaNo { get; set; }
         public string dev_Nazwa { get; set; }
+        public Nullable<int> dev_status { get; set; }
+        public Nullable<int> dev_uzyt { get; set; }
+        public Nullable<int> dev_typ { get; set; }
+        public Nullable<int> dev_producent { get; set; }
         public string dev_model { get; set; }
         public string dev_sn { get; set; }
         public string dev_pn { get; set; }
         public string dev_dataZakupu { get; set; }
+        public Nullable<int> dev_dostawca { get; set; }
         public string dev_nrFaktury { get; set; }
     
         public virtual Dostawca Dostawca { get; set; }

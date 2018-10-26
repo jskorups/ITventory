@@ -25,11 +25,11 @@ namespace ITventory_v2.Models
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Devices> Devices { get; set; }
         public virtual DbSet<Dostawca> Dostawca { get; set; }
         public virtual DbSet<kompTyp> kompTyp { get; set; }
         public virtual DbSet<Producent> Producent { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<Uzytkownicy> Uzytkownicy { get; set; }
-        public virtual DbSet<Devices> Devices { get; set; }
     }
 }
