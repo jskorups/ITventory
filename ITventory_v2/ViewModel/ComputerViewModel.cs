@@ -91,7 +91,7 @@ namespace ITventory_v2.ViewModel
             {
 
 
-                Użytkownicy = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
+          //      Użytkownicy = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
             }
             ).ToList();
 
