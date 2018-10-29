@@ -13,7 +13,7 @@ namespace ITventory_v2.Models
         public string Imie { get; set; }
         public string Nazwisko { get; set; }
         public int id { get; set; }
-        public string ImieINazwisko { get { return Imie + " " + Nazwisko; } }
+        public string ImieINazwisko { get { return Imie + " " + Nazwisko; }}
 
         public NameViewModel() { }
 

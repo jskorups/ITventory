@@ -31,7 +31,6 @@ namespace ITventory_v2
         { 
             InitializeComponent();
             DataContext = new ViewModel.ComputerViewModel().ListOfDevices();
-
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {

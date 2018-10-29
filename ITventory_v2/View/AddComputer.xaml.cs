@@ -43,7 +43,6 @@ namespace ITventory_v2
 
         private void addSaveBtn_Click(object sender, RoutedEventArgs e)
         {
-
             ViewModel.ComputerViewModel wnd = (ViewModel.ComputerViewModel)DataContext;
             wnd.SaveToDatabase();
             this.Close();

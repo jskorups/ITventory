@@ -13,14 +13,16 @@ namespace ITventory_v2.ViewModel
     {
         public int? Id { get; set; }
 
-        //pola obowiazkowe
 
+
+
+        //pola obowiazkowe
         public string GAno {get;set;} 
         public int? SilesiaNo {get;set;} 
         public string NazwaKomputera {get;set;}
         // pola wybieralne
         public int Status { get; set; }
-        public int Użytkownik { get; set; }
+        public int Użytkownicy { get; set; }
         public int Typ { get; set; }
         //
         public int Producent { get; set; }
@@ -33,7 +35,7 @@ namespace ITventory_v2.ViewModel
         public string DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
 
-    
+
         public string SaveToDatabase()
         {
             try
@@ -48,15 +50,18 @@ namespace ITventory_v2.ViewModel
                 dev.dev_GAno = GAno;
                 dev.dev_SilesiaNo = SilesiaNo;
                 dev.dev_Nazwa = NazwaKomputera;
-                dev.dev_status = Status;
-                dev.dev_uzyt = Użytkownik;
-                dev.dev_typ = Typ;
-                dev.dev_producent = Producent;
+
+                //dev.dev_status = Status;
+                dev.dev_uzyt = Użytkownicy;
+                //dev.dev_typ = Typ;
+                //dev.dev_producent = Producent;
+
                 dev.dev_model = Model;
                 dev.dev_pn = PartNumber;
                 dev.dev_sn = SerialNumber;
-                dev.dev_dostawca = Dostawca;
+                //dev.dev_dostawca = Dostawca;
                 dev.dev_dataZakupu = DataZakupu;
+                dev.dev_nrFaktury = NumerFaktury;
 
 
                 if (Id == null || Id == 0)
@@ -76,6 +81,23 @@ namespace ITventory_v2.ViewModel
         {
             throw new NotImplementedException();
         }
+
+
+        //lista uzytkowników
+        public List<ComputerViewModel> mainDane()
+        {
+            ITventoryEntities ent = new ITventoryEntities();
+            List<ComputerViewModel> MainObject = ent.Devices.Select(x => new ComputerViewModel()
+            {
+
+
+                Użytkownicy = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
+            }
+            ).ToList();
+
+            return MainObject;
+        }
+
 
         public List<IDevices> ListOfDevices()
         {
