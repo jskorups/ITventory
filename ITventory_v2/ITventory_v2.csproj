@@ -197,6 +197,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="toDo.txt" />
     <Resource Include="icon_it_y0W_icon.ico" />
     <Content Include="Models\ITventoryModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

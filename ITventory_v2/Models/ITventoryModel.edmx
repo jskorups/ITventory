@@ -20,7 +20,7 @@
           <Property Name="dev_model" Type="nvarchar" MaxLength="50" />
           <Property Name="dev_sn" Type="nvarchar" MaxLength="50" />
           <Property Name="dev_pn" Type="nvarchar" MaxLength="50" />
-          <Property Name="dev_dataZakupu" Type="nvarchar" MaxLength="50" />
+          <Property Name="dev_dataZakupu" Type="date" />
           <Property Name="dev_dostawca" Type="int" />
           <Property Name="dev_nrFaktury" Type="nvarchar" MaxLength="50" />
         </EntityType>
@@ -196,7 +196,7 @@
           <Property Name="dev_model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="dev_sn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="dev_pn" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="dev_dataZakupu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="dev_dataZakupu" Type="DateTime" Precision="0" />
           <Property Name="dev_dostawca" Type="Int32" />
           <Property Name="dev_nrFaktury" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dostawca" Relationship="ITventoryModel.FK_Komputery_Dostawca" FromRole="Devices" ToRole="Dostawca" />

@@ -1,0 +1,3 @@
+﻿1. Niue mozna przekonwertowac
+2. Walidacja pól -  INotifyErrorInfo / INotifyPropertyChanged
+3. ItemSourcing dla comboboxów

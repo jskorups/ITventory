@@ -5,21 +5,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ITventory_v2.Models;
-
+using System.ComponentModel.DataAnnotations.Schema;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Collections;
+using System.Runtime.CompilerServices;
 
 namespace ITventory_v2.ViewModel
 {
     public class ComputerViewModel : IDevices
     {
+
+        #region Pola obowiązkowe
         public int? Id { get; set; }
-
-
-
-
-        //pola obowiazkowe
         public string GAno {get;set;} 
         public int? SilesiaNo {get;set;} 
+
+
         public string NazwaKomputera {get;set;}
+
         // pola wybieralne
         public int Status { get; set; }
         public int Użytkownicy { get; set; }
@@ -32,9 +36,44 @@ namespace ITventory_v2.ViewModel
         // pole wybieralne
         public int Dostawca { get; set; }
         //
-        public string DataZakupu { get; set; }
+        //[Column(TypeName = "Date")]
+        public DateTime DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
+        #endregion
+        #region Pola dodatkowe 2
 
+
+
+
+        #endregion
+        #region Pola dodatkowe 3
+
+
+
+
+
+        #endregion
+        #region Pola dodatkowe 4
+
+
+
+
+
+        #endregion
+
+        //lista uzytkowników
+
+        public List<NameViewModel> ListOfNames()
+        {
+            ITventoryEntities ent = new ITventoryEntities();
+            List<NameViewModel> names = ent.Uzytkownicy.Select(x => new NameViewModel()
+            {
+                Imie = x.uzyt_imie,
+                Nazwisko = x.uzyt_nazwisko,
+                id = x.uzyt_id
+            }).ToList();
+            return names;
+        }
 
         public string SaveToDatabase()
         {
@@ -50,12 +89,10 @@ namespace ITventory_v2.ViewModel
                 dev.dev_GAno = GAno;
                 dev.dev_SilesiaNo = SilesiaNo;
                 dev.dev_Nazwa = NazwaKomputera;
-
                 //dev.dev_status = Status;
-                dev.dev_uzyt = Użytkownicy;
+                //dev.dev_uzyt = Użytkownicy;
                 //dev.dev_typ = Typ;
                 //dev.dev_producent = Producent;
-
                 dev.dev_model = Model;
                 dev.dev_pn = PartNumber;
                 dev.dev_sn = SerialNumber;
@@ -63,16 +100,16 @@ namespace ITventory_v2.ViewModel
                 dev.dev_dataZakupu = DataZakupu;
                 dev.dev_nrFaktury = NumerFaktury;
 
-
                 if (Id == null || Id == 0)
                 {
                     ent.Devices.Add(dev);
                 }
                 ent.SaveChanges();
             }
+
             catch(Exception ex)
             {
-                return ex.Message;
+               Console.WriteLine(ex.Message);
             }
             return "";
         }
@@ -80,22 +117,6 @@ namespace ITventory_v2.ViewModel
         public string DeleteFromDatabase(IDevices device)
         {
             throw new NotImplementedException();
-        }
-
-
-        //lista uzytkowników
-        public List<ComputerViewModel> mainDane()
-        {
-            ITventoryEntities ent = new ITventoryEntities();
-            List<ComputerViewModel> MainObject = ent.Devices.Select(x => new ComputerViewModel()
-            {
-
-
-          //      Użytkownicy = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
-            }
-            ).ToList();
-
-            return MainObject;
         }
 
 
@@ -136,5 +157,6 @@ namespace ITventory_v2.ViewModel
             //}).ToList();
             return komputery;
         }
+
     }
 }

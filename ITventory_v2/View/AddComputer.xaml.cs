@@ -25,7 +25,7 @@ namespace ITventory_v2
         public AddComputer()
         {
             InitializeComponent();
-            DataContext = new ViewModel.ComputerViewModel();
+            DataContext = new ViewModel.ComputerViewModel();           
         }
 
         public AddComputer(ViewModel.ComputerViewModel model)
