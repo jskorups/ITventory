@@ -13,16 +13,16 @@ using System.Runtime.CompilerServices;
 
 namespace ITventory_v2.ViewModel
 {
-    public class ComputerViewModel : IDevices
+    public class ComputerViewModel : IDevices, INotifyPropertyChanged, IDataErrorInfo
     {
 
         #region Pola obowiązkowe
         public int? Id { get; set; }
-        public string GAno {get;set;} 
-        public int? SilesiaNo {get;set;} 
+        public string GAno { get; set; }
+        public int? SilesiaNo { get; set; }
+        public string NazwaKomputera { get; set; }
 
 
-        public string NazwaKomputera {get;set;}
 
         // pola wybieralne
         public int Status { get; set; }
@@ -37,8 +37,40 @@ namespace ITventory_v2.ViewModel
         public int Dostawca { get; set; }
         //
         //[Column(TypeName = "Date")]
-        public DateTime DataZakupu { get; set; }
+        public DateTime? DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
+
+        //IDataErrorInfo
+
+        public string Error
+        {
+            get {
+                return null;
+            }
+        }
+
+        public string this[string PropertyName]
+        {
+            get
+            {
+                string result = string.Empty;
+                switch (PropertyName)
+                {
+                    case "NazwaKomputera":
+                        if (string.IsNullOrEmpty(NazwaKomputera))
+
+                            result = "Wymagana jest nazwa komputera";
+                        break;
+                }
+                return result;
+            }
+        }
+
+        //IDataErrorInfo
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
         #endregion
         #region Pola dodatkowe 2
 
@@ -63,17 +95,8 @@ namespace ITventory_v2.ViewModel
 
         //lista uzytkowników
 
-        public List<NameViewModel> ListOfNames()
-        {
-            ITventoryEntities ent = new ITventoryEntities();
-            List<NameViewModel> names = ent.Uzytkownicy.Select(x => new NameViewModel()
-            {
-                Imie = x.uzyt_imie,
-                Nazwisko = x.uzyt_nazwisko,
-                id = x.uzyt_id
-            }).ToList();
-            return names;
-        }
+        #region Save
+
 
         public string SaveToDatabase()
         {
@@ -90,14 +113,14 @@ namespace ITventory_v2.ViewModel
                 dev.dev_SilesiaNo = SilesiaNo;
                 dev.dev_Nazwa = NazwaKomputera;
                 //dev.dev_status = Status;
-                //dev.dev_uzyt = Użytkownicy;
+                dev.dev_uzyt = Użytkownicy;
                 //dev.dev_typ = Typ;
                 //dev.dev_producent = Producent;
                 dev.dev_model = Model;
                 dev.dev_pn = PartNumber;
                 dev.dev_sn = SerialNumber;
                 //dev.dev_dostawca = Dostawca;
-                dev.dev_dataZakupu = DataZakupu;
+                dev.dev_dataZakupu = DataZakupu.Value;
                 dev.dev_nrFaktury = NumerFaktury;
 
                 if (Id == null || Id == 0)
@@ -113,12 +136,14 @@ namespace ITventory_v2.ViewModel
             }
             return "";
         }
-
+        #endregion
+        #region Delete
         public string DeleteFromDatabase(IDevices device)
         {
             throw new NotImplementedException();
         }
-
+        #endregion
+        #region ListaOfDevices
 
         public List<IDevices> ListOfDevices()
         {
@@ -134,6 +159,7 @@ namespace ITventory_v2.ViewModel
             }));
             return komputery;
         }
+       
 
         public List<IDevices> ListOfDevices(string filter)
         {
@@ -157,6 +183,12 @@ namespace ITventory_v2.ViewModel
             //}).ToList();
             return komputery;
         }
+
+        public IEnumerable GetErrors(string propertyName)
+        {
+            throw new NotImplementedException();
+        }
+        #endregion
 
     }
 }

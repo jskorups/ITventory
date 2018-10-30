@@ -32,8 +32,6 @@ namespace ITventory_v2
             chos.ShowDialog();
         }
 
-        
-
         private void EditViewGrid_Click(object sender, RoutedEventArgs e)
         {
             databaseViewEditGrid edt = new databaseViewEditGrid(new ComputerViewModel().ListOfDevices());

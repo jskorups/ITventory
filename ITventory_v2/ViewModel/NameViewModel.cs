@@ -17,6 +17,20 @@ namespace ITventory_v2.Models
 
         public NameViewModel() { }
 
+
+        public List<NameViewModel> ListOfNames()
+        {
+            ITventoryEntities ent = new ITventoryEntities();
+            List<NameViewModel> names = ent.Uzytkownicy.Select(x => new NameViewModel()
+            {
+                Imie = x.uzyt_imie,
+                Nazwisko = x.uzyt_nazwisko,
+                id = x.uzyt_id
+            }).ToList();
+            return names;
+        }
+
+  
         public NameViewModel(int id)
         {
             ITventoryEntities ent = new ITventoryEntities();

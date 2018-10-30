@@ -25,7 +25,7 @@ namespace ITventory_v2.Models
         public string dev_model { get; set; }
         public string dev_sn { get; set; }
         public string dev_pn { get; set; }
-        public DateTime dev_dataZakupu { get; set; }
+        public Nullable<System.DateTime> dev_dataZakupu { get; set; }
         public Nullable<int> dev_dostawca { get; set; }
         public string dev_nrFaktury { get; set; }
     
@@ -35,7 +35,4 @@ namespace ITventory_v2.Models
         public virtual Status Status { get; set; }
         public virtual Uzytkownicy Uzytkownicy { get; set; }
     }
-
-
-
 }
