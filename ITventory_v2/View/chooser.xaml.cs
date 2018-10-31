@@ -29,9 +29,6 @@ namespace ITventory_v2.View
             AddComputer addWnd = new AddComputer();
             addWnd.ShowDialog();
 
-            
-
-
         }
 
         private void chooserPhone_Click(object sender, RoutedEventArgs e)

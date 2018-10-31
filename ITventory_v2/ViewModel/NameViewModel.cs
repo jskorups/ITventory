@@ -15,6 +15,9 @@ namespace ITventory_v2.Models
         public int id { get; set; }
         public string ImieINazwisko { get { return Imie + " " + Nazwisko; }}
 
+
+
+
         public NameViewModel() { }
 
 

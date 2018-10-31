@@ -23,7 +23,6 @@ namespace ITventory_v2.ViewModel
         public string NazwaKomputera { get; set; }
 
 
-
         // pola wybieralne
         public int Status { get; set; }
         public int Użytkownicy { get; set; }
@@ -40,8 +39,14 @@ namespace ITventory_v2.ViewModel
         public DateTime? DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
 
-        //IDataErrorInfo
 
+        //Uzytkownicy
+        public string imie { get; set; }
+        public string nazwisko { get; set; }
+        public string ImieInazwisko { get { return imie + " " + nazwisko; } }
+
+        #region IDataErrorInfo
+        //IDataErrorInfo
         public string Error
         {
             get {
@@ -56,17 +61,28 @@ namespace ITventory_v2.ViewModel
                 string result = string.Empty;
                 switch (PropertyName)
                 {
+                    case "GAno":
+                        if (string.IsNullOrEmpty(GAno))
+                            result = "Wymagany jest numer GA";
+                        break;
+                    case "SilesiaNo":
+                        if (string.IsNullOrEmpty(SilesiaNo.ToString()))
+                            result = "Wymagany jest numer Sielsia";
+                        break;
                     case "NazwaKomputera":
                         if (string.IsNullOrEmpty(NazwaKomputera))
-
                             result = "Wymagana jest nazwa komputera";
+                        break;
+                    case "ImieInazwisko":
+                        if (string.IsNullOrEmpty(ImieInazwisko))
+                            result = "Wymagany jest użytkownik";
                         break;
                 }
                 return result;
             }
         }
-
         //IDataErrorInfo
+        #endregion
 
 
         public event PropertyChangedEventHandler PropertyChanged;
@@ -74,12 +90,29 @@ namespace ITventory_v2.ViewModel
         #endregion
         #region Pola dodatkowe 2
 
-
-
+        public string Procesor { get; set; }
+        public string Pamiec { get; set; }
+        public string ProducentDysku { get; set; }
+        public string DyskModel { get; set; }
+        public string DyskSN { get; set; }
+        public string DyskRozmiar { get; set; }
+        public string Grafika { get; set; }
+        public string CdRom { get; set; }
+        public string CdRomSn { get; set; }
 
         #endregion
         #region Pola dodatkowe 3
 
+
+        public string Lan { get; set; }
+        public string LanMac { get; set; }
+        public string Wlan { get; set; }
+        public string WlanMac { get; set; }
+        public string BatterySN { get; set; }
+        public string SystemOpercyjny { get; set; }
+        public string DataZakupu { get; set; }
+        public string Licencja { get; set; }
+        public string CdRomSn { get; set; }
 
 
 
@@ -94,6 +127,20 @@ namespace ITventory_v2.ViewModel
         #endregion
 
         //lista uzytkowników
+
+
+        public List<ComputerViewModel> ListOfNames()
+        {
+            ITventoryEntities ent = new ITventoryEntities();
+            List<ComputerViewModel> names = ent.Uzytkownicy.Select(x => new ComputerViewModel()
+            {
+                imie = x.uzyt_imie,
+                nazwisko = x.uzyt_nazwisko,
+                Id = x.uzyt_id
+            }).ToList();
+            return names;
+        }
+
 
         #region Save
 
