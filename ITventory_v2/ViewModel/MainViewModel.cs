@@ -24,7 +24,6 @@ namespace ITventory_v2.ViewModel
                 Id = x.dev_id,
                 GAno = x.dev_GAno,
                 Silno = x.dev_SilesiaNo.ToString(),
-
                 ImieInaziwsko = x.Uzytkownicy.uzyt_imie + " " + x.Uzytkownicy.uzyt_nazwisko
             }
             ).ToList();

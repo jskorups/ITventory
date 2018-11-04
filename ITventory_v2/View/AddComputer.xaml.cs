@@ -26,8 +26,9 @@ namespace ITventory_v2
         {
             InitializeComponent();
             DataContext = new ViewModel.ComputerViewModel();
-            uzytkownicyLista.ItemsSource = new ViewModel.ComputerViewModel().ListOfNames();
+            //   uzytkownicyLista.ItemsSource = new ViewModel.ComputerViewModel().ListOfNames();
         }
+        
 
         public AddComputer(ViewModel.ComputerViewModel model)
         {

@@ -5,23 +5,47 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ITventory_v2.Models;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Collections;
 using System.Runtime.CompilerServices;
+using ITventory_v2.ViewModel;
+using System.Diagnostics;
 
 namespace ITventory_v2.ViewModel
 {
-    public class ComputerViewModel : IDevices, INotifyPropertyChanged, IDataErrorInfo
+    using GalaSoft.MvvmLight;
+    using GalaSoft.MvvmLight.Command;
+     
+
+    public class ComputerViewModel : ViewModelBase, IDevices, INotifyPropertyChanged, IDataErrorInfo
     {
 
-        #region Pola obowiązkowe
+
+        public ComputerViewModel()
+        {
+            OkCommand = new RelayCommand(() =>
+            {
+                Trace.TraceInformation("OK");
+            },
+            () => IsOK);
+        }
+
+        public RelayCommand OkCommand { get; private set; }
+
+
+        private Dictionary<string, string> Errors { get; } = new Dictionary<string, string>();
+
+
+
+
         public int? Id { get; set; }
+     
         public string GAno { get; set; }
         public int? SilesiaNo { get; set; }
         public string NazwaKomputera { get; set; }
 
+        
 
         // pola wybieralne
         public int Status { get; set; }
@@ -39,54 +63,53 @@ namespace ITventory_v2.ViewModel
         public DateTime? DataZakupu { get; set; }
         public string NumerFaktury { get; set; }
 
-
         //Uzytkownicy
+        public int userId { get; set; }
         public string imie { get; set; }
         public string nazwisko { get; set; }
         public string ImieInazwisko { get { return imie + " " + nazwisko; } }
 
+
+
+
         #region IDataErrorInfo
         //IDataErrorInfo
-        public string Error
-        {
-            get {
-                return null;
-            }
-        }
+
 
         public string this[string PropertyName]
         {
             get
             {
-                string result = string.Empty;
-                switch (PropertyName)
-                {
-                    case "GAno":
-                        if (string.IsNullOrEmpty(GAno))
-                            result = "Wymagany jest numer GA";
-                        break;
-                    case "SilesiaNo":
-                        if (string.IsNullOrEmpty(SilesiaNo.ToString()))
-                            result = "Wymagany jest numer Sielsia";
-                        break;
-                    case "NazwaKomputera":
-                        if (string.IsNullOrEmpty(NazwaKomputera))
-                            result = "Wymagana jest nazwa komputera";
-                        break;
-                    case "ImieInazwisko":
-                        if (string.IsNullOrEmpty(ImieInazwisko))
-                            result = "Wymagany jest użytkownik";
-                        break;
-                }
-                return result;
+                CollectErrors();
+                return Errors.ContainsKey(PropertyName) ? Errors[PropertyName] : string.Empty;
             }
         }
-        //IDataErrorInfo
-        #endregion
+
+        private void CollectErrors()
+        {
+            Errors.Clear();
+            if (string.IsNullOrEmpty(GAno))
+            {
+                Errors.Add(nameof(GAno), "Podaj numer GA");
+            }
+            
+            if (string.IsNullOrEmpty(SilesiaNo.ToString()))
+            {
+                Errors.Add(nameof(SilesiaNo), "Podaj numer Silesia");
+            }
+
+            if (string.IsNullOrEmpty(NazwaKomputera) || NazwaKomputera.Length > 3)
+            {
+                Errors.Add(nameof(NazwaKomputera), "Podaj nazwe komputera");
+            }
 
 
-        public event PropertyChangedEventHandler PropertyChanged;
+            OkCommand.RaiseCanExecuteChanged();
+        }
 
+        public string Error => string.Empty;
+        public bool HasErrors => Errors.Any();
+        public bool IsOK => !HasErrors;
         #endregion
         #region Pola dodatkowe 2
 
@@ -110,9 +133,9 @@ namespace ITventory_v2.ViewModel
         public string WlanMac { get; set; }
         public string BatterySN { get; set; }
         public string SystemOpercyjny { get; set; }
-        public string DataZakupu { get; set; }
+       // public string DataZakupu { get; set; }
         public string Licencja { get; set; }
-        public string CdRomSn { get; set; }
+        //  public string CdRomSn { get; set; }
 
 
 
@@ -125,23 +148,6 @@ namespace ITventory_v2.ViewModel
 
 
         #endregion
-
-        //lista uzytkowników
-
-
-        public List<ComputerViewModel> ListOfNames()
-        {
-            ITventoryEntities ent = new ITventoryEntities();
-            List<ComputerViewModel> names = ent.Uzytkownicy.Select(x => new ComputerViewModel()
-            {
-                imie = x.uzyt_imie,
-                nazwisko = x.uzyt_nazwisko,
-                Id = x.uzyt_id
-            }).ToList();
-            return names;
-        }
-
-
         #region Save
 
 
@@ -207,7 +213,6 @@ namespace ITventory_v2.ViewModel
             return komputery;
         }
        
-
         public List<IDevices> ListOfDevices(string filter)
         {
             Devices dev = new Devices();

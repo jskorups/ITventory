@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ITventory_v2.Models;
 
-namespace ITventory_v2.Models
+namespace ITventory_v2.ViewModel
 {
     public class NameViewModel
     {
@@ -15,11 +15,8 @@ namespace ITventory_v2.Models
         public int id { get; set; }
         public string ImieINazwisko { get { return Imie + " " + Nazwisko; }}
 
-
-
-
+       
         public NameViewModel() { }
-
 
         public List<NameViewModel> ListOfNames()
         {
@@ -32,6 +29,7 @@ namespace ITventory_v2.Models
             }).ToList();
             return names;
         }
+
 
   
         public NameViewModel(int id)

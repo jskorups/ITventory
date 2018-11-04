@@ -2,19 +2,41 @@
     <Window x:Class="ITventory_v2.AddComputer"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+   
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
-        xmlns:local="clr-namespace:ITventory_v2"
-        mc:Ignorable="d"
-        xmlns:System="clr-namespace:System;assembly=mscorlib"
+        xmlns:vm ="clr-namespace:ITventory_v2.ViewModel"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+            mc:Ignorable ="d"
+
         Title="AddComputer" Height="850" Width="1080">
 
 
 
     <Grid >
 <!---->
+
+        <Grid.Resources>
+            <ControlTemplate x:Key="ErrorTemplate">
+               <DockPanel LastChildFill="True">
+                   <Border DockPanel.Dock="Top" BorderBrush="Red" BorderThickness="1">
+                       <AdornedElementPlaceholder/>
+                   </Border>
+               </DockPanel>
+            </ControlTemplate>
+            
+            <Style TargetType="TextBox">
+                
+                <Setter Property="Validation.ErrorTemplate" Value="{StaticResource ErrorTemplate}" />
+                <Style.Triggers>
+                    <Trigger Property="Validation.HasError" Value="true">
+                        <Setter Property="ToolTip" Value="{Binding RelativeSource={x:Static RelativeSource.Self},Path=(Validation.Errors).CurrentItem.ErrorContent}"/>  
+                    </Trigger>
+                </Style.Triggers> 
+                </Style>
+        </Grid.Resources>
+        
         <Grid.RowDefinitions>
             <RowDefinition Height="1*" />
             <RowDefinition Height="5*" />
@@ -30,7 +52,7 @@
         <StackPanel Grid.Row="0" Background="DarkSlateBlue" Orientation="Horizontal">
             
             <materialDesign:PackIcon Kind="Laptop" Foreground="WhiteSmoke" Height="100" Width="auto" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="30,0,0,0"></materialDesign:PackIcon>
-            <TextBox Foreground="White" FontSize="36" FontWeight="Bold" Margin="40,0,0,40" BorderThickness="0">Dodaj nowy komputer</TextBox>
+            <Label Foreground="White" FontSize="48" FontWeight="Bold" Margin="40,20,0,20" BorderThickness="0">Dodaj nowy komputer</Label>
         </StackPanel>
 
         <StackPanel Grid.Row="1">
@@ -76,12 +98,11 @@
                         <Label Grid.Column="0" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Użytkownik"/>
                         <Label Grid.Column="0" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Typ"/>
                         <Label Grid.Column="0" Grid.Row="6" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" Content="Producent"/>
-
-                        <TextBox Text="{Binding GAno, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
-                        <TextBox Text="{Binding SilesiaNo, ValidatesOnDataErrors=True}" Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Text="{Binding GAno, ValidatesOnDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="0" FontFamily="Century Gothic" FontSize="16"  BorderThickness="1" TextAlignment="Center"/>
+                        <TextBox Text="{Binding SilesiaNo, ValidatesOnDataErrors=True, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" Grid.Row="1" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Text="{Binding NazwaKomputera, ValidatesOnDataErrors=True}"  Grid.Column="1" Grid.Row="2" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="3" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
-                        <ComboBox ItemsSource="{Binding ImieInazwisko}" HorizontalContentAlignment="Center" SelectedValuePath="id" DisplayMemberPath="ImieInazwisko" Name="uzytkownicyLista" Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1"></ComboBox>
+                        <ComboBox ItemsSource="{Binding ListOfNames}" DisplayMemberPath="imie" HorizontalContentAlignment="Center"  Name="uzytkownicyLista" Grid.Column="1" Grid.Row="4" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1"></ComboBox>
                         <TextBox Grid.Column="1" Grid.Row="5" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                         <TextBox Grid.Column="1" Grid.Row="6" FontFamily="Century Gothic" FontSize="16" BorderBrush="LightGray" BorderThickness="1" TextAlignment="Center"/>
                     </Grid>
@@ -444,7 +465,7 @@
                     <materialDesign:PackIcon Kind="Cancel" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                 </Button>
 
-                <Button Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20" Click="addSaveBtn_Click">
+            <Button Command="{Binding OkCommand}" Background="Transparent" x:Name="addSaveBtn" BorderThickness="3" BorderBrush="White" Height="70" Width="85"  HorizontalAlignment="Right" Margin="20,0,30,20" Click="addSaveBtn_Click">
                     <materialDesign:PackIcon Kind="ContentSave" Foreground="White" Height="auto" Width="auto"></materialDesign:PackIcon>
                  </Button>
             </StackPanel>
